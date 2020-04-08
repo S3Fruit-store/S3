@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yc.fresh.dao.ProducttypeMapper">
+  <resultMap id="BaseResultMap" type="com.yc.fresh.bean.Producttype">
+    <result column="tid" jdbcType="INTEGER" property="tid" />
+    <result column="tname" jdbcType="VARCHAR" property="tname" />
+    <result column="tstate" jdbcType="INTEGER" property="tstate" />
+    <result column="ttemp1" jdbcType="VARCHAR" property="ttemp1" />
+    <result column="ttemp2" jdbcType="VARCHAR" property="ttemp2" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    tid, tname, tstate, ttemp1, ttemp2
+  </sql>
+  <select id="selectByExample" parameterType="com.yc.fresh.bean.ProducttypeExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from producttype
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.yc.fresh.bean.ProducttypeExample">
+    delete from producttype
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.yc.fresh.bean.Producttype">
+    <selectKey keyProperty="tid" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into producttype (tname, tstate, ttemp1, 
+      ttemp2)
+    values (#{tname,jdbcType=VARCHAR}, #{tstate,jdbcType=INTEGER}, #{ttemp1,jdbcType=VARCHAR}, 
+      #{ttemp2,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yc.fresh.bean.Producttype">
+    <selectKey keyProperty="tid" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into producttype
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="tname != null">
+        tname,
+      </if>
+      <if test="tstate != null">
+        tstate,
+      </if>
+      <if test="ttemp1 != null">
+        ttemp1,
+      </if>
+      <if test="ttemp2 != null">
+        ttemp2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="tname != null">
+        #{tname,jdbcType=VARCHAR},
+      </if>
+      <if test="tstate != null">
+        #{tstate,jdbcType=INTEGER},
+      </if>
+      <if test="ttemp1 != null">
+        #{ttemp1,jdbcType=VARCHAR},
+      </if>
+      <if test="ttemp2 != null">
+        #{ttemp2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.yc.fresh.bean.ProducttypeExample" resultType="java.lang.Long">
+    select count(*) from producttype
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update producttype
+    <set>
+      <if test="record.tid != null">
+        tid = #{record.tid,jdbcType=INTEGER},
+      </if>
+      <if test="record.tname != null">
+        tname = #{record.tname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tstate != null">
+        tstate = #{record.tstate,jdbcType=INTEGER},
+      </if>
+      <if test="record.ttemp1 != null">
+        ttemp1 = #{record.ttemp1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ttemp2 != null">
+        ttemp2 = #{record.ttemp2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update producttype
+    set tid = #{record.tid,jdbcType=INTEGER},
+      tname = #{record.tname,jdbcType=VARCHAR},
+      tstate = #{record.tstate,jdbcType=INTEGER},
+      ttemp1 = #{record.ttemp1,jdbcType=VARCHAR},
+      ttemp2 = #{record.ttemp2,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

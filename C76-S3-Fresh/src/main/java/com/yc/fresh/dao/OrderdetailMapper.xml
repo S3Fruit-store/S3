@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yc.fresh.dao.OrderdetailMapper">
+  <resultMap id="BaseResultMap" type="com.yc.fresh.bean.Orderdetail">
+    <id column="odid" jdbcType="INTEGER" property="odid" />
+    <result column="oid" jdbcType="INTEGER" property="oid" />
+    <result column="pid" jdbcType="INTEGER" property="pid" />
+    <result column="pquintity" jdbcType="INTEGER" property="pquintity" />
+    <result column="odcost" jdbcType="REAL" property="odcost" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    odid, oid, pid, pquintity, odcost
+  </sql>
+  <select id="selectByExample" parameterType="com.yc.fresh.bean.OrderdetailExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from orderdetail
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from orderdetail
+    where odid = #{odid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from orderdetail
+    where odid = #{odid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.yc.fresh.bean.OrderdetailExample">
+    delete from orderdetail
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.yc.fresh.bean.Orderdetail">
+    <selectKey keyProperty="odid" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into orderdetail (oid, pid, pquintity, 
+      odcost)
+    values (#{oid,jdbcType=INTEGER}, #{pid,jdbcType=INTEGER}, #{pquintity,jdbcType=INTEGER}, 
+      #{odcost,jdbcType=REAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yc.fresh.bean.Orderdetail">
+    <selectKey keyProperty="odid" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into orderdetail
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="oid != null">
+        oid,
+      </if>
+      <if test="pid != null">
+        pid,
+      </if>
+      <if test="pquintity != null">
+        pquintity,
+      </if>
+      <if test="odcost != null">
+        odcost,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="oid != null">
+        #{oid,jdbcType=INTEGER},
+      </if>
+      <if test="pid != null">
+        #{pid,jdbcType=INTEGER},
+      </if>
+      <if test="pquintity != null">
+        #{pquintity,jdbcType=INTEGER},
+      </if>
+      <if test="odcost != null">
+        #{odcost,jdbcType=REAL},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.yc.fresh.bean.OrderdetailExample" resultType="java.lang.Long">
+    select count(*) from orderdetail
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update orderdetail
+    <set>
+      <if test="record.odid != null">
+        odid = #{record.odid,jdbcType=INTEGER},
+      </if>
+      <if test="record.oid != null">
+        oid = #{record.oid,jdbcType=INTEGER},
+      </if>
+      <if test="record.pid != null">
+        pid = #{record.pid,jdbcType=INTEGER},
+      </if>
+      <if test="record.pquintity != null">
+        pquintity = #{record.pquintity,jdbcType=INTEGER},
+      </if>
+      <if test="record.odcost != null">
+        odcost = #{record.odcost,jdbcType=REAL},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update orderdetail
+    set odid = #{record.odid,jdbcType=INTEGER},
+      oid = #{record.oid,jdbcType=INTEGER},
+      pid = #{record.pid,jdbcType=INTEGER},
+      pquintity = #{record.pquintity,jdbcType=INTEGER},
+      odcost = #{record.odcost,jdbcType=REAL}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yc.fresh.bean.Orderdetail">
+    update orderdetail
+    <set>
+      <if test="oid != null">
+        oid = #{oid,jdbcType=INTEGER},
+      </if>
+      <if test="pid != null">
+        pid = #{pid,jdbcType=INTEGER},
+      </if>
+      <if test="pquintity != null">
+        pquintity = #{pquintity,jdbcType=INTEGER},
+      </if>
+      <if test="odcost != null">
+        odcost = #{odcost,jdbcType=REAL},
+      </if>
+    </set>
+    where odid = #{odid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yc.fresh.bean.Orderdetail">
+    update orderdetail
+    set oid = #{oid,jdbcType=INTEGER},
+      pid = #{pid,jdbcType=INTEGER},
+      pquintity = #{pquintity,jdbcType=INTEGER},
+      odcost = #{odcost,jdbcType=REAL}
+    where odid = #{odid,jdbcType=INTEGER}
+  </update>
+</mapper>

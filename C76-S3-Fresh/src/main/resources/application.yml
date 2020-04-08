@@ -1,0 +1,27 @@
+server:
+   port: 80
+
+spring:
+  datasource:
+     url: jdbc:mysql://127.0.0.1:3306/C76-S3-fresh
+     username: root
+     password: a
+     driver-class-name: com.mysql.jdbc.Driver
+
+     
+     
+mybatis:
+  #实体类的路径
+  type-aliases-package: com.yc.fresh.bean
+  configuration:
+     map-underscore-to-camel-case: true    
+     
+     
+# 日志配置
+logging:
+  level:
+    com:
+      yc:
+        fresh:
+          dao: debug
+          web: warn      
