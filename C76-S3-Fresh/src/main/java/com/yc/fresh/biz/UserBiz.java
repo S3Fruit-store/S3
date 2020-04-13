@@ -65,16 +65,10 @@ public class UserBiz {
 	}
 	
 	public void changpwd(User user,String uaccount,String upwd) {
-		System.out.println(user.toString());
 		UserExample ue = new UserExample();
-		
 		ue.createCriteria().andUaccountEqualTo(uaccount);
 		user.setUpwd(upwd);
-		
 		um.updateByExampleSelective(user, ue);
-		
-		System.out.println(user.toString());
-		
 		
 	}
 	
