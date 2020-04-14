@@ -17,10 +17,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
+
+import com.yc.fresh.bean.CartExample;
 import com.yc.fresh.bean.User;
 import com.yc.fresh.biz.BizException;
 import com.yc.fresh.biz.UserBiz;
+import com.yc.fresh.dao.CartMapper;
 import com.yc.fresh.vo.Result;
 
 
@@ -137,5 +141,26 @@ public class IndexAction {
 		}
 	}
 	
+	@GetMapping("tomember")
+	public String toMember() {
+		return "member";
+	}
+	@GetMapping("tocart")
+	public String toCart() {
+		return "cart";
+	}
+	
+	@Resource
+	private CartMapper cm;
+	
+	@GetMapping("toCart")
+	public ModelAndView toCart(ModelAndView mav,
+			@SessionAttribute("loginedUser") User user) {
+		CartExample ce = new CartExample();
+		ce.createCriteria().andUidEqualTo(user.getUid());
+		mav.addObject("clist",cm.selectByExample(ce));
+		mav.setViewName("cart");
+		return mav;
+	}
 	
 }
