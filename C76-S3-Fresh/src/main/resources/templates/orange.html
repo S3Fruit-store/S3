@@ -4,39 +4,18 @@
     <meta charset="UTF-8">
     <title>果然新鲜</title>
     <link href="css/orange.css"rel="stylesheet">
+    <link href="css/index.css"rel="stylesheet">
     <link href="css/share.css"rel="stylesheet">
     <script src="js/jquery-1.12.3.js"></script>
     </script><script type="text/javascript" src="js/jquery.SuperSlide.2.1.1.js"></script>
 </head>
 <body>
 <!--顶部导航-->
-<div class="headr">
-    <div class="heard-con">
-        <img src="images/logo.jpg" style="margin-top: 7px;float: left;position: absolute">
-        <div class="headr-nav">
-            <ul>
-                <li><a href="index.html"><span>首页</span></a> </li>
-                <li><a href="hot.html">蔬果热卖</a> </li>
-                <li><a href="produ.html">全部产品</a> </li>
-                <li><a href="consult.html">最新资讯</a></li>
-                <li><a href="touch.html">联系我们</a> </li>
-            </ul>
-            <div class="sptopfoot">
-                <div class="spbottom"  >
-                </div>
-            </div>
-        </div>
-        <div class="headr-right">
-            <i class="iconfont" style="font-size: 16px;margin-right: 10px">&#xe7d5;</i>
-            我的购物车 ∨
-            <div class="hr-car">
-                <i class="iconfont"style="font-size: 40px;margin-right: 10px">&#xe633;</i>
-                您的购物车内暂时没有任何产品。
-            </div>
-        </div>
-    </div>
-</div>
-<!--顶部导航结束-->
+<div id="top" th:replace="common/common::commtop"></div>
+
+<!-- 页头 -->
+<div class="headr" th:replace="common/common::commheader"></div>
+
 <!--banner图片-->
 <div class="her-banner">
 
@@ -47,7 +26,7 @@
     <div class="cont-top">
         <div class="cont-left">
             <div class="ctl-img">
-                <img src="images/org.jpg">
+                <img th:src="@{${alist.ffilename}}">
             </div>
             <div class="collect">
                 <div class="coll">
@@ -75,7 +54,7 @@
         </div>
         <div class="cont-right">
             <div class="J_productTitle title g_minor">
-                <span>南非进口黄柠檬 6个装</span>
+                <span th:text="${alist.fname}" >南非进口黄柠檬 6个装</span>
                 <span id="productQrCode" class="webSiteQrCode">&nbsp;
                 <div class="code">
                     <img src="images/qrCode%20(1).gif">
@@ -86,7 +65,7 @@
            <div class="pic">
                <span class="ppi">价格:</span>
                <span class="f-mallUnit">￥</span>
-               <span class="pcc">29.00</span>
+               <span th:text="${alist.fprice}" class="pcc">29.00</span>
            </div>
             <div class="pict">
                 <div class="f-proSatifySumWrap">
@@ -145,11 +124,8 @@
 
         </div>
         <div class="bd">
-            <div class="bd1"style="display: block">
-                <img src="images/or-1.png">
-                <img src="images/or-2.png">
-                <img src="images/or-3.png">
-                <img src="images/or-4.png">
+            <div th:each=" p : ${plist}" class="bd1"style="display: block">
+                <img th:src="@{${p.pdetail}}">
             </div>
             <div class="bd1">
                 <img src="images/or-5.jpg">
@@ -313,6 +289,9 @@
     </div>
 </div>
 <!--弹框结束-->
+<!--主页内容结束-->
+<!--底部-->
+<div class="footer" th:replace="common/common::commfooter">
 </body>
 <script src="js/orange.js"></script>
 </html>
