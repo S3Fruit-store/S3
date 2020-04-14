@@ -10,7 +10,7 @@
     <result column="uphone" jdbcType="VARCHAR" property="uphone" />
     <result column="uemail" jdbcType="VARCHAR" property="uemail" />
     <result column="ufilename" jdbcType="VARCHAR" property="ufilename" />
-    <result column="utype" jdbcType="VARCHAR" property="utype" />
+    <result column="utype" jdbcType="INTEGER" property="utype" />
     <result column="ustatus" jdbcType="INTEGER" property="ustatus" />
     <result column="utemp1" jdbcType="VARCHAR" property="utemp1" />
     <result column="utemp2" jdbcType="VARCHAR" property="utemp2" />
@@ -117,7 +117,7 @@
       utemp1, utemp2)
     values (#{uaccount,jdbcType=VARCHAR}, #{uname,jdbcType=VARCHAR}, #{upwd,jdbcType=VARCHAR}, 
       #{usex,jdbcType=VARCHAR}, #{uphone,jdbcType=VARCHAR}, #{uemail,jdbcType=VARCHAR}, 
-      #{ufilename,jdbcType=VARCHAR}, #{utype,jdbcType=VARCHAR}, #{ustatus,jdbcType=INTEGER}, 
+      #{ufilename,jdbcType=VARCHAR}, #{utype,jdbcType=INTEGER}, #{ustatus,jdbcType=INTEGER}, 
       #{utemp1,jdbcType=VARCHAR}, #{utemp2,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.yc.fresh.bean.User">
@@ -183,7 +183,7 @@
         #{ufilename,jdbcType=VARCHAR},
       </if>
       <if test="utype != null">
-        #{utype,jdbcType=VARCHAR},
+        #{utype,jdbcType=INTEGER},
       </if>
       <if test="ustatus != null">
         #{ustatus,jdbcType=INTEGER},
@@ -230,7 +230,7 @@
         ufilename = #{record.ufilename,jdbcType=VARCHAR},
       </if>
       <if test="record.utype != null">
-        utype = #{record.utype,jdbcType=VARCHAR},
+        utype = #{record.utype,jdbcType=INTEGER},
       </if>
       <if test="record.ustatus != null">
         ustatus = #{record.ustatus,jdbcType=INTEGER},
@@ -256,7 +256,7 @@
       uphone = #{record.uphone,jdbcType=VARCHAR},
       uemail = #{record.uemail,jdbcType=VARCHAR},
       ufilename = #{record.ufilename,jdbcType=VARCHAR},
-      utype = #{record.utype,jdbcType=VARCHAR},
+      utype = #{record.utype,jdbcType=INTEGER},
       ustatus = #{record.ustatus,jdbcType=INTEGER},
       utemp1 = #{record.utemp1,jdbcType=VARCHAR},
       utemp2 = #{record.utemp2,jdbcType=VARCHAR}
@@ -289,7 +289,7 @@
         ufilename = #{ufilename,jdbcType=VARCHAR},
       </if>
       <if test="utype != null">
-        utype = #{utype,jdbcType=VARCHAR},
+        utype = #{utype,jdbcType=INTEGER},
       </if>
       <if test="ustatus != null">
         ustatus = #{ustatus,jdbcType=INTEGER},
@@ -312,7 +312,7 @@
       uphone = #{uphone,jdbcType=VARCHAR},
       uemail = #{uemail,jdbcType=VARCHAR},
       ufilename = #{ufilename,jdbcType=VARCHAR},
-      utype = #{utype,jdbcType=VARCHAR},
+      utype = #{utype,jdbcType=INTEGER},
       ustatus = #{ustatus,jdbcType=INTEGER},
       utemp1 = #{utemp1,jdbcType=VARCHAR},
       utemp2 = #{utemp2,jdbcType=VARCHAR}

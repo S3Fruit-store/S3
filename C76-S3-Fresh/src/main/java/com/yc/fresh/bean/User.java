@@ -17,7 +17,7 @@ public class User {
 
     private String ufilename;
 
-    private String utype;
+    private Integer utype;
 
     private Integer ustatus;
 
@@ -89,12 +89,12 @@ public class User {
         this.ufilename = ufilename == null ? null : ufilename.trim();
     }
 
-    public String getUtype() {
+    public Integer getUtype() {
         return utype;
     }
 
-    public void setUtype(String utype) {
-        this.utype = utype == null ? null : utype.trim();
+    public void setUtype(Integer utype) {
+        this.utype = utype;
     }
 
     public Integer getUstatus() {
@@ -120,4 +120,12 @@ public class User {
     public void setUtemp2(String utemp2) {
         this.utemp2 = utemp2 == null ? null : utemp2.trim();
     }
+
+	@Override
+	public String toString() {
+		return "User [uid=" + uid + ", uaccount=" + uaccount + ", uname=" + uname + ", upwd=" + upwd + ", usex=" + usex
+				+ ", uphone=" + uphone + ", uemail=" + uemail + ", ufilename=" + ufilename + ", utype=" + utype
+				+ ", ustatus=" + ustatus + ", utemp1=" + utemp1 + ", utemp2=" + utemp2 + "]";
+	}
+    
 }
