@@ -635,6 +635,76 @@ public class ProductExample {
             return (Criteria) this;
         }
 
+        public Criteria andFfilenameIsNull() {
+            addCriterion("ffilename is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andFfilenameIsNotNull() {
+            addCriterion("ffilename is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andFfilenameEqualTo(String value) {
+            addCriterion("ffilename =", value, "ffilename");
+            return (Criteria) this;
+        }
+
+        public Criteria andFfilenameNotEqualTo(String value) {
+            addCriterion("ffilename <>", value, "ffilename");
+            return (Criteria) this;
+        }
+
+        public Criteria andFfilenameGreaterThan(String value) {
+            addCriterion("ffilename >", value, "ffilename");
+            return (Criteria) this;
+        }
+
+        public Criteria andFfilenameGreaterThanOrEqualTo(String value) {
+            addCriterion("ffilename >=", value, "ffilename");
+            return (Criteria) this;
+        }
+
+        public Criteria andFfilenameLessThan(String value) {
+            addCriterion("ffilename <", value, "ffilename");
+            return (Criteria) this;
+        }
+
+        public Criteria andFfilenameLessThanOrEqualTo(String value) {
+            addCriterion("ffilename <=", value, "ffilename");
+            return (Criteria) this;
+        }
+
+        public Criteria andFfilenameLike(String value) {
+            addCriterion("ffilename like", value, "ffilename");
+            return (Criteria) this;
+        }
+
+        public Criteria andFfilenameNotLike(String value) {
+            addCriterion("ffilename not like", value, "ffilename");
+            return (Criteria) this;
+        }
+
+        public Criteria andFfilenameIn(List<String> values) {
+            addCriterion("ffilename in", values, "ffilename");
+            return (Criteria) this;
+        }
+
+        public Criteria andFfilenameNotIn(List<String> values) {
+            addCriterion("ffilename not in", values, "ffilename");
+            return (Criteria) this;
+        }
+
+        public Criteria andFfilenameBetween(String value1, String value2) {
+            addCriterion("ffilename between", value1, value2, "ffilename");
+            return (Criteria) this;
+        }
+
+        public Criteria andFfilenameNotBetween(String value1, String value2) {
+            addCriterion("ffilename not between", value1, value2, "ffilename");
+            return (Criteria) this;
+        }
+
         public Criteria andFnumberIsNull() {
             addCriterion("fnumber is null");
             return (Criteria) this;

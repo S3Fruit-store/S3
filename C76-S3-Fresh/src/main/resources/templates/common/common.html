@@ -12,25 +12,16 @@
 	<div class="hd_top_manu clearfix">
 	  <ul class="clearfix">
 	   <li class="hd_menu_tit zhuce" data-addclass="hd_menu_hover">
-	   		欢迎光临本店！<a th:href="tologin" class="red">[请登录]</a>
-	   	           新用户<a th:href="toreg" class="red">[免费注册]</a>
+	   		欢迎光临本店！
+	   		<a th:text="${session.loginedUser} == null ? 'Hi,请登录' : ('Hi,' + ${session.loginedUser.uname})"
+	   		 class="red" th:href="tologin">[请登录]</a>
+	   		
+	   	           新用户<a href="toreg" class="red">[免费注册]</a>
 	   </li>
-	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">我的订单</a></li>
+	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">我的账户</a></li>
 	   <li class="hd_menu_tit hd_Shopping_Cart" data-addclass="hd_menu_hover">
 	     <a href="#" class="hd_menu">购物车</a>
-		 <div class="hd_Shopping_list">
-		    <i></i>
-		   <ul>	   
-		   <li>
-		    <div class="img"><img src="common/images/tianma.png" /></div>
-		    <div class="content"><p><a href="#">产品名称</a></p><p>颜色分类:紫花8255尺码:XL</p></div>
-			<div class="Operations">
-			<p class="Price">￥55.00</p>
-			<p><a href="#">删除</a></p></div>
-		   </li>
-		   </ul>
-		    <div class="Shopping_style"><a href="#" class="Shopping">查看我的购物车</a></div>
-		  </div>
+		 <a href="tologinout">退出</a>
 	   </li>
 	  
 	  </ul>
@@ -46,7 +37,7 @@
         <div class="headr-nav">
             <ul>
                 <li><a href="index.html"style="color: #4AB344"><span style="color: #4AB344">首页</span></a> </li>
-                <li><a href="produ.html">全部产品</a> </li>
+                <li><a th:href="produ">全部产品</a> </li>
                 <li><a href="consult.html">最新资讯</a></li>
                 <li><a href="touch.html">联系我们</a> </li>
 				
