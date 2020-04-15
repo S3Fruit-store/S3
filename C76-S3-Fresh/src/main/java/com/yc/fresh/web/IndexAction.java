@@ -43,18 +43,28 @@ public class IndexAction {
 	}
 	@PostMapping("login")
 	@ResponseBody
-	public Result login(@Valid User user,Errors errors,HttpSession session) {
-		if(errors.hasFieldErrors("uaccount") || errors.hasFieldErrors("upwd")) {
-			return new Result(1, "请输入用户名和密码！");
-		}
+	public ModelAndView login(@Valid User user,Errors errors,HttpSession session,
+			ModelAndView mav,@SessionAttribute(name="uri",required=false)String uri) {
+		/*
+		 * if(errors.hasFieldErrors("uaccount") || errors.hasFieldErrors("upwd")) {
+		 * return new Result(1, "请输入用户名和密码！"); }
+		 */
 		try {
 			User dbuser = ubiz.login(user);
 			session.setAttribute("loginedUser", dbuser);
-			return new Result(0, "登录成功",dbuser);
+			if(uri != null) {
+				// 这是拦截登录的情况
+				mav.setViewName("redirect:http://127.0.0.1" + uri);
+			} else {
+				// 这是用户的主动登录
+				mav.setViewName("index");
+			}
 		} catch (BizException e) {
 			e.printStackTrace();
-			return new Result(e.getCode(), e.getMessage());
+			mav.addObject("msg", e.getMessage());
+			mav.setViewName("login");
 		}
+		return mav;
 		
 	}
 	@GetMapping("toreg")
@@ -138,26 +148,6 @@ public class IndexAction {
 		}
 	}
 	
-	@GetMapping("tomember")
-	public String toMember() {
-		return "member";
-	}
-	@GetMapping("tocart")
-	public String toCart() {
-		return "cart";
-	}
 	
-	@Resource
-	private CartMapper cm;
-	
-	@GetMapping("toCart")
-	public ModelAndView toCart(ModelAndView mav,
-			@SessionAttribute("loginedUser") User user) {
-		CartExample ce = new CartExample();
-		ce.createCriteria().andUidEqualTo(user.getUid());
-		mav.addObject("clist",cm.selectByExample(ce));
-		mav.setViewName("cart");
-		return mav;
-	}
 	
 }

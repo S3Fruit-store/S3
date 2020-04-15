@@ -133,7 +133,7 @@
 		}
 		.form .group .group-ipt{
 			position: relative;
-    		margin: 0;
+    		margin: 10;
     		overflow: hidden;
 		}
 		.form .group .group-ipt input{

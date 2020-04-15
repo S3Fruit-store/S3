@@ -22,8 +22,10 @@ public class UserBiz {
 	
 	public User login(@Valid User user) throws BizException {
 		UserExample ue = new UserExample();
-		ue.or().andUaccountEqualTo(user.getUaccount()).andUpwdEqualTo(user.getUpwd()).andUtypeEqualTo(1);
-		ue.or().andUnameEqualTo(user.getUaccount()).andUpwdEqualTo(user.getUpwd());
+		ue.or().andUaccountEqualTo(user.getUaccount()).andUpwdEqualTo(user.getUpwd());
+		/*
+		 * ue.or().andUnameEqualTo(user.getUaccount()).andUpwdEqualTo(user.getUpwd());
+		 */
 		
 		List<User> list = um.selectByExample(ue);
 
