@@ -28,14 +28,9 @@ public class produAction {
 	@Resource
 	private ProductdetailMapper pdm;
 	
-	@GetMapping({ "/", "index", "index.html" })
-	public String index() {
-		return "index";
-	}
-	
 	@GetMapping({ "produ" })
-	public String produ(@RequestParam(defaultValue = "1") Integer page,@RequestParam(defaultValue = "国产") String fparenttype, Model m) {
-		Page<Product> pg = PageHelper.startPage(page, 5);
+	public String produ(@RequestParam(defaultValue = "1") Integer page,@RequestParam(defaultValue = "国产水果") String fparenttype, Model m) {
+		Page<Product> pg = PageHelper.startPage(page,9);
 		ProductExample pe = new ProductExample();
 		pe.createCriteria().andFparenttypeEqualTo(fparenttype);
 		pm.selectByExample(pe);
