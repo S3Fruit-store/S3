@@ -35,10 +35,7 @@ public class IndexAction {
 	@Resource
 	private UserBiz ubiz;
 	
-	@GetMapping({ "/", "index", "index.html" })
-	public String index() {
-		return "index";
-	}
+	
 	
 	@GetMapping("tologin")
 	public String tologin() {

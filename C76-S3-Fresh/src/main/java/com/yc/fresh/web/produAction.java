@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
-
+import com.github.pagehelper.PageInfo;
 import com.yc.fresh.bean.Product;
 import com.yc.fresh.bean.ProductExample;
 import com.yc.fresh.bean.Productdetail;
@@ -35,12 +35,14 @@ public class produAction {
 	
 	@GetMapping({ "produ" })
 	public String produ(@RequestParam(defaultValue = "1") Integer page,@RequestParam(defaultValue = "国产") String fparenttype, Model m) {
-		Page<Product> pg = PageHelper.startPage(page, 5);
+		Page<Product> pg = PageHelper.startPage(page, 5,true);
 		ProductExample pe = new ProductExample();
 		pe.createCriteria().andFparenttypeEqualTo(fparenttype);
 		pm.selectByExample(pe);
-		System.out.println(pg.toString());
 		m.addAttribute("alist", pg);
+		PageInfo<Product>  pageInfo=pg.toPageInfo();
+		System.out.println(pageInfo.toString());
+		m.addAttribute("plist", pageInfo);
 		return "produ";
 	}
 	@GetMapping({ "orange" })

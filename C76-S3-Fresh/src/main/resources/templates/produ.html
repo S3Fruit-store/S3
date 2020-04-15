@@ -92,13 +92,15 @@
                         </div>
                  
                 <div class="hd">
-                    <div class="net">上一页</div>
-                    <ul>
-                        <li><a href="#" class="active">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
+                    <div class="net"><a th:href="'produ?page='+${p.prePage}" >上一页</a></div>
+                    <ul >
+                        <li th:each=" p :${plist} " >
+                        <a th:href="'produ?page='+${p.pageNum}" class="active">
+                        <span th:text="${p.pageNum}" >1</span>
+                        </a>
+                        </li>
                     </ul>
-                    <div class="next"> 下一页</div>
+                    <div class="next"> <a th:href="'produ?page='+${p.nextPage}" >下一页</a></div>
                 </div>
             </div>
 
