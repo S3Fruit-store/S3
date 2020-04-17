@@ -34,14 +34,14 @@ public class produAction {
 	}
 	
 	@GetMapping({ "produ" })
-	public String produ(@RequestParam(defaultValue = "1") Integer page,@RequestParam(defaultValue = "国产") String fparenttype, Model m) {
-		Page<Product> pg = PageHelper.startPage(page, 5,true);
+	public String produ(@RequestParam(defaultValue = "1") Integer page,@RequestParam(defaultValue = "国产水果") String fparenttype, Model m) {
+		Page<Product> pg = PageHelper.startPage(page, 12,true);
 		ProductExample pe = new ProductExample();
 		pe.createCriteria().andFparenttypeEqualTo(fparenttype);
 		pm.selectByExample(pe);
 		m.addAttribute("alist", pg);
-		PageInfo<Product>  pageInfo=pg.toPageInfo();
-		System.out.println(pageInfo.toString());
+		PageInfo <Product>  pageInfo = pg.toPageInfo();
+		
 		m.addAttribute("plist", pageInfo);
 		return "produ";
 	}
@@ -54,6 +54,7 @@ public class produAction {
 		m.addAttribute("alist", pg);
 		System.out.println(pd.toString());
 		m.addAttribute("plist", pd);
+		
 		return "orange";
 	}
 }
