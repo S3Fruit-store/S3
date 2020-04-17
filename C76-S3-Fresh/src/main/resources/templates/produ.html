@@ -92,15 +92,15 @@
                         </div>
                  
                 <div class="hd">
-                    <div class="net"><a th:href="'produ?page='+${p.prePage}" >上一页</a></div>
-                    <ul >
-                        <li th:each=" p :${plist} " >
-                        <a th:href="'produ?page='+${p.pageNum}" class="active">
-                        <span th:text="${p.pageNum}" >1</span>
+                    <div class="net"><a th:href="'produ?page='+${plist.prePage}" >上一页</a></div>
+                    <ul>
+                        <li>
+                        <a th:href="'produ?page='+${plist.pageNum}" class="active">
+                        <span th:text="${plist.pageNum}" >1</span>
                         </a>
                         </li>
                     </ul>
-                    <div class="next"> <a th:href="'produ?page='+${p.nextPage}" >下一页</a></div>
+                    <div class="next"> <a th:href="'produ?page='+${plist.nextPage}" >下一页</a></div>
                 </div>
             </div>
 
@@ -109,11 +109,12 @@
     </div>
 
     <!--产品推荐结束-->
+  </div>
+ </div>
 </div>
-
 <!--主页内容结束-->
 <!--底部-->
-<div class="footer" th:replace="common/common::commfooter">
+<div class="footer" th:replace="common/common::commfooter"></div>
 </body>
 <script src="js/produ.js"></script>
 </html>
