@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.servlet.ModelAndView;
 import com.yc.fresh.bean.Cart;
 import com.yc.fresh.bean.CartExample;
+import com.yc.fresh.bean.Order;
 import com.yc.fresh.bean.OrderExample;
 import com.yc.fresh.bean.User;
 import com.yc.fresh.bean.UserExample;
@@ -65,16 +66,15 @@ public class UserAction {
 	}
 	
 	
-	public String toMemberOrder() {
-		return "member_order";
-	}
+	
 	@GetMapping("member_order")
 	public String memberOrder(Model m,
 			@SessionAttribute("loginedUser")User user) {
 		OrderExample oe = new OrderExample();
 		oe.createCriteria().andUidEqualTo(user.getUid());
-		m.addAttribute("olist", om.selectByExample(oe));
-		
+		List<Order> olist = om.selectByExample(oe);
+		m.addAttribute("olist", olist);
+		System.out.println(olist.size());
 		return "member_order";
 	}
 }

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
-
+import com.github.pagehelper.PageInfo;
 import com.yc.fresh.bean.Product;
 import com.yc.fresh.bean.ProductExample;
 import com.yc.fresh.bean.Productdetail;
@@ -28,13 +28,21 @@ public class produAction {
 	@Resource
 	private ProductdetailMapper pdm;
 	
+	@GetMapping({ "/", "index", "index.html" })
+	public String index() {
+		return "index";
+	}
+	
 	@GetMapping({ "produ" })
-	public String produ(@RequestParam(defaultValue = "1") Integer page,@RequestParam(defaultValue = "国产水果") String fparenttype, Model m) {
-		Page<Product> pg = PageHelper.startPage(page,9);
+	public String produ(@RequestParam(defaultValue = "1") Integer page,@RequestParam(defaultValue = "国产") String fparenttype, Model m) {
+		Page<Product> pg = PageHelper.startPage(page, 5,true);
 		ProductExample pe = new ProductExample();
 		pe.createCriteria().andFparenttypeEqualTo(fparenttype);
 		pm.selectByExample(pe);
 		m.addAttribute("alist", pg);
+		PageInfo<Product>  pageInfo=pg.toPageInfo();
+		System.out.println(pageInfo.toString());
+		m.addAttribute("plist", pageInfo);
 		return "produ";
 	}
 	@GetMapping({ "orange" })
