@@ -7,13 +7,23 @@ public class Cart {
 
     private Integer uid;
 
-    private Integer pid;
+    private Integer fid;
 
     private Integer ccount;
 
     private Date ctime;
+    
+    private Product product;
 
-    public Integer getCid() {
+    public Product getProduct() {
+		return product;
+	}
+
+	public void setProduct(Product product) {
+		this.product = product;
+	}
+
+	public Integer getCid() {
         return cid;
     }
 
@@ -29,12 +39,12 @@ public class Cart {
         this.uid = uid;
     }
 
-    public Integer getPid() {
-        return pid;
+    public Integer getFid() {
+        return fid;
     }
 
-    public void setPid(Integer pid) {
-        this.pid = pid;
+    public void setFid(Integer fid) {
+        this.fid = fid;
     }
 
     public Integer getCcount() {

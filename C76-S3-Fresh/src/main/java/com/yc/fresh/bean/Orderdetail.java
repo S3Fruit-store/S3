@@ -5,7 +5,7 @@ public class Orderdetail {
 
     private Integer oid;
 
-    private Integer pid;
+    private Integer fid;
 
     private Integer pquintity;
 
@@ -27,12 +27,12 @@ public class Orderdetail {
         this.oid = oid;
     }
 
-    public Integer getPid() {
-        return pid;
+    public Integer getFid() {
+        return fid;
     }
 
-    public void setPid(Integer pid) {
-        this.pid = pid;
+    public void setFid(Integer fid) {
+        this.fid = fid;
     }
 
     public Integer getPquintity() {

@@ -37,9 +37,9 @@
             <div class="left_m">
             	<div class="left_m_t t_bg2">会员中心</div>
                 <ul>
-                	<li><a href="Member_User.html">用户信息</a></li>
-                    <li><a href="Member_Order.html">我的订单</a></li>
-                    <li><a href="Member_Links.html">推广链接</a></li>
+                	<li><a th:href="member">用户信息</a></li>
+                    <li><a th:href="member_order">我的订单</a></li>
+                    <li><a href="#">推广链接</a></li>
                     <li><a href="#">我的评论</a></li>
                 </ul>
             </div>
@@ -52,13 +52,13 @@
             </div>
             
         </div>
-		<div class="m_right">
+		<div class="m_right" th:each=" user: ${ulist} ">
         	<div class="m_des">
             	<table border="0" style="width:870px; line-height:22px;" cellspacing="0" cellpadding="0">
                   <tr valign="top">
-                    <td width="115"><img src="images/user.jpg" width="90" height="90" /></td>
+                    <td width="115"><img src="#" width="90" height="90" /></td>
                     <td>
-                    	<div class="m_user">TRACY</div>
+                    	<div class="m_user" th:text="${user.uname}" >TRACY</div>
                         <p>
                             等级：注册用户 <br />
                             <font color="#ff4e00">您还差 270 积分达到 分红100</font><br />
@@ -96,21 +96,18 @@
             <table border="0" class="acc_tab" style="width:870px;" cellspacing="0" cellpadding="0">
               <tr>
                 <td class="td_l">用户ID： </td>
-                <td>12345678</td>
+                <td th:text="${user.uaccount}">12345678</td>
               </tr>
               
               <tr>
                 <td class="td_l b_none">电  话：</td>
-                <td>186****1234</td>
+                <td th:text="${user.uphone}">186****1234</td>
               </tr>
               <tr>
                 <td class="td_l">邮   箱： </td>
-                <td>*******789@qq.com</td>
+                <td th:text="${user.uemail}">*******789@qq.com</td>
               </tr>
-              <tr>
-                <td class="td_l b_none">注册时间：</td>
-                <td>2015/10/10</td>
-              </tr>
+            
               <tr>
                 <td class="td_l">完成订单：</td>
                 <td>0</td>
@@ -121,6 +118,7 @@
             
         </div>
     </div>
+</div>    
 	<!--End 用户中心 End--> 
     <!--Begin Footer Begin -->
    <div class="footer" th:replace="common/common::commfooter">

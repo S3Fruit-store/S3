@@ -34,7 +34,6 @@ public class produAction {
 		ProductExample pe = new ProductExample();
 		pe.createCriteria().andFparenttypeEqualTo(fparenttype);
 		pm.selectByExample(pe);
-		System.out.println(pg.toString());
 		m.addAttribute("alist", pg);
 		return "produ";
 	}
