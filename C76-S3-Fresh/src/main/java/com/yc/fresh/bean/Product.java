@@ -19,6 +19,8 @@ public class Product {
 
     private Float fprice;
 
+    private String ffilename;
+
     private Integer fnumber;
 
     private String ftemp1;
@@ -87,6 +89,14 @@ public class Product {
 
     public void setFprice(Float fprice) {
         this.fprice = fprice;
+    }
+
+    public String getFfilename() {
+        return ffilename;
+    }
+
+    public void setFfilename(String ffilename) {
+        this.ffilename = ffilename == null ? null : ffilename.trim();
     }
 
     public Integer getFnumber() {

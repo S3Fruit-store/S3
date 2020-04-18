@@ -664,62 +664,52 @@ public class UserExample {
             return (Criteria) this;
         }
 
-        public Criteria andUtypeEqualTo(String value) {
+        public Criteria andUtypeEqualTo(Integer value) {
             addCriterion("utype =", value, "utype");
             return (Criteria) this;
         }
 
-        public Criteria andUtypeNotEqualTo(String value) {
+        public Criteria andUtypeNotEqualTo(Integer value) {
             addCriterion("utype <>", value, "utype");
             return (Criteria) this;
         }
 
-        public Criteria andUtypeGreaterThan(String value) {
+        public Criteria andUtypeGreaterThan(Integer value) {
             addCriterion("utype >", value, "utype");
             return (Criteria) this;
         }
 
-        public Criteria andUtypeGreaterThanOrEqualTo(String value) {
+        public Criteria andUtypeGreaterThanOrEqualTo(Integer value) {
             addCriterion("utype >=", value, "utype");
             return (Criteria) this;
         }
 
-        public Criteria andUtypeLessThan(String value) {
+        public Criteria andUtypeLessThan(Integer value) {
             addCriterion("utype <", value, "utype");
             return (Criteria) this;
         }
 
-        public Criteria andUtypeLessThanOrEqualTo(String value) {
+        public Criteria andUtypeLessThanOrEqualTo(Integer value) {
             addCriterion("utype <=", value, "utype");
             return (Criteria) this;
         }
 
-        public Criteria andUtypeLike(String value) {
-            addCriterion("utype like", value, "utype");
-            return (Criteria) this;
-        }
-
-        public Criteria andUtypeNotLike(String value) {
-            addCriterion("utype not like", value, "utype");
-            return (Criteria) this;
-        }
-
-        public Criteria andUtypeIn(List<String> values) {
+        public Criteria andUtypeIn(List<Integer> values) {
             addCriterion("utype in", values, "utype");
             return (Criteria) this;
         }
 
-        public Criteria andUtypeNotIn(List<String> values) {
+        public Criteria andUtypeNotIn(List<Integer> values) {
             addCriterion("utype not in", values, "utype");
             return (Criteria) this;
         }
 
-        public Criteria andUtypeBetween(String value1, String value2) {
+        public Criteria andUtypeBetween(Integer value1, Integer value2) {
             addCriterion("utype between", value1, value2, "utype");
             return (Criteria) this;
         }
 
-        public Criteria andUtypeNotBetween(String value1, String value2) {
+        public Criteria andUtypeNotBetween(Integer value1, Integer value2) {
             addCriterion("utype not between", value1, value2, "utype");
             return (Criteria) this;
         }

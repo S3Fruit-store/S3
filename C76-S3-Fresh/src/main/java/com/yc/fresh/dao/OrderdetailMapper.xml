@@ -4,7 +4,7 @@
   <resultMap id="BaseResultMap" type="com.yc.fresh.bean.Orderdetail">
     <id column="odid" jdbcType="INTEGER" property="odid" />
     <result column="oid" jdbcType="INTEGER" property="oid" />
-    <result column="pid" jdbcType="INTEGER" property="pid" />
+    <result column="fid" jdbcType="INTEGER" property="fid" />
     <result column="pquintity" jdbcType="INTEGER" property="pquintity" />
     <result column="odcost" jdbcType="REAL" property="odcost" />
   </resultMap>
@@ -67,7 +67,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    odid, oid, pid, pquintity, odcost
+    odid, oid, fid, pquintity, odcost
   </sql>
   <select id="selectByExample" parameterType="com.yc.fresh.bean.OrderdetailExample" resultMap="BaseResultMap">
     select
@@ -103,9 +103,9 @@
     <selectKey keyProperty="odid" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into orderdetail (oid, pid, pquintity, 
+    insert into orderdetail (oid, fid, pquintity, 
       odcost)
-    values (#{oid,jdbcType=INTEGER}, #{pid,jdbcType=INTEGER}, #{pquintity,jdbcType=INTEGER}, 
+    values (#{oid,jdbcType=INTEGER}, #{fid,jdbcType=INTEGER}, #{pquintity,jdbcType=INTEGER}, 
       #{odcost,jdbcType=REAL})
   </insert>
   <insert id="insertSelective" parameterType="com.yc.fresh.bean.Orderdetail">
@@ -117,8 +117,8 @@
       <if test="oid != null">
         oid,
       </if>
-      <if test="pid != null">
-        pid,
+      <if test="fid != null">
+        fid,
       </if>
       <if test="pquintity != null">
         pquintity,
@@ -131,8 +131,8 @@
       <if test="oid != null">
         #{oid,jdbcType=INTEGER},
       </if>
-      <if test="pid != null">
-        #{pid,jdbcType=INTEGER},
+      <if test="fid != null">
+        #{fid,jdbcType=INTEGER},
       </if>
       <if test="pquintity != null">
         #{pquintity,jdbcType=INTEGER},
@@ -157,8 +157,8 @@
       <if test="record.oid != null">
         oid = #{record.oid,jdbcType=INTEGER},
       </if>
-      <if test="record.pid != null">
-        pid = #{record.pid,jdbcType=INTEGER},
+      <if test="record.fid != null">
+        fid = #{record.fid,jdbcType=INTEGER},
       </if>
       <if test="record.pquintity != null">
         pquintity = #{record.pquintity,jdbcType=INTEGER},
@@ -175,7 +175,7 @@
     update orderdetail
     set odid = #{record.odid,jdbcType=INTEGER},
       oid = #{record.oid,jdbcType=INTEGER},
-      pid = #{record.pid,jdbcType=INTEGER},
+      fid = #{record.fid,jdbcType=INTEGER},
       pquintity = #{record.pquintity,jdbcType=INTEGER},
       odcost = #{record.odcost,jdbcType=REAL}
     <if test="_parameter != null">
@@ -188,8 +188,8 @@
       <if test="oid != null">
         oid = #{oid,jdbcType=INTEGER},
       </if>
-      <if test="pid != null">
-        pid = #{pid,jdbcType=INTEGER},
+      <if test="fid != null">
+        fid = #{fid,jdbcType=INTEGER},
       </if>
       <if test="pquintity != null">
         pquintity = #{pquintity,jdbcType=INTEGER},
@@ -203,7 +203,7 @@
   <update id="updateByPrimaryKey" parameterType="com.yc.fresh.bean.Orderdetail">
     update orderdetail
     set oid = #{oid,jdbcType=INTEGER},
-      pid = #{pid,jdbcType=INTEGER},
+      fid = #{fid,jdbcType=INTEGER},
       pquintity = #{pquintity,jdbcType=INTEGER},
       odcost = #{odcost,jdbcType=REAL}
     where odid = #{odid,jdbcType=INTEGER}

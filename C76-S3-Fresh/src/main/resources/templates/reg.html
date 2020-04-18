@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+		<script src="js/reg/kit.js"></script>
+		<!--[if IE]>
+		<script src="js/ieFix.js"></script>
+		<![endif]-->
+		<script type="text/javascript">
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-30210234-1']);
+			_gaq.push(['_trackPageview']);
+			(function() {
+				var ga = document.createElement('script');
+				ga.type = 'text/javascript';
+				ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(ga, s);
+			})();
+
+		</script>
+		<script src="js/reg/dom.js"></script>
+		<script src="js/reg/form.js"></script>
+		<link rel="stylesheet" href="css/reg/css.css" />
+		<link rel="stylesheet" href="css/reg/login.css" />
+		<link rel="stylesheet" href="css/reg/validator.css" />
+		<!--validator-->
+		<script src="js/reg/validator.js"></script>
+		<script src="js/reg/autowired.validator.js"></script>
+		<style>
+			table td {
+				font-size: 14px;
+			}
+			label {
+				cursor: pointer;
+				margin-right: 1em;
+			}
+		</style>
+	<script type="text/javascript">
+	
+	function reg(){
+		var formData = new FormData(registForm);
+		$.ajax({
+			url : 'reg', /*接口域名地址*/
+			type : 'post',
+			data : formData,
+			contentType : false,
+			processData : false,
+			success : function(res) {
+				if (res.code == 1) {
+					alert('注册成功');
+				}else {
+					/* console.info(res.data)	 */
+					alert('注册失败');
+					
+					}
+				}
+			
+		});
+
+	}
+</script>
+	</head>
+	<body>
+		<h1>果然新鲜用户注册</h1>
+		<div id="regist-main">
+			<form id="registForm" action="" method="post" >
+				<ol>
+					<li>
+						<label for="uaccount">账户名：
+						<span class="kitjs-validator" for="@uaccount" rules="[{notNull:true, message:'账户名不能为空'}]"></span>
+						</label>
+						<span class="field-validation-valid" data-valmsg-for="uaccount" data-valmsg-replace="true"></span>
+						<input id="uaccount" name="uaccount" type="text" value=""/>
+					</li>
+					<li>
+						<label for="uname">昵称：
+						<span class="kitjs-validator" for="@uname" rules="[{notNull:true, message:'昵称不能为空'}]"></span>
+						</label>
+						<span class="field-validation" data-valmsg-for="uname" data-valmsg-replace="true"></span>
+						<input id="uname" name="uname" type="text" value=""/>
+					</li>						
+					<li>
+						<label for="upwd">密码：
+						<span class="kitjs-validator" for="@upwd" rules="[{notNull:true, message:'密码不能为空'},{minLength:'6',message:'密码长度最少为6位'}]"></span>
+						</label>
+						<span class="field-validation-valid" data-valmsg-for="upwd" data-valmsg-replace="true"></span>
+						<input id="upwd" name="upwd" type="password"/>
+					</li>
+					<li>
+						<label for="repwd">重新输入密码：
+						<span class="kitjs-validator" for="@repwd" rules="[{notNull:true, message:'重新输入密码不能为空'},{equalWith:'@upwd',message:'两次输入密码必须一致'},{minLength:'6',message:'密码长度最少为6位'}]"></span>
+						</label>
+						<span class="field-validation-valid" data-valmsg-for="repwd" data-valmsg-replace="true"></span>
+						<input id="repwd" name="repwd" type="password"/>
+					</li>
+					<li>
+						<label for="uemail">电子邮件：
+						<span class="kitjs-validator" for="@uemail" rules="[{notNull:true, message:'电子邮件不能为空'},{isEmail:true,message:'电子邮件格式不正确'}]"></span>
+						</label>
+						<span class="field-validation-valid" data-valmsg-for="uemail" data-valmsg-replace="true"></span>
+						<input id="uemail" name="uemail" type="text" value=""/>
+					</li>
+					<li>
+						<label for="uphone">手机号码：
+						<span class="kitjs-validator" for="@uphone" rules="[{notNull:true, message:'手机号码不能为空'},{isPhone:true,message:'手机号码格式不正确'}]"></span>
+						</label>
+						<span class="field-validation-valid" data-valmsg-for="uphone" data-valmsg-replace="true"></span>
+						<input id="uphone" name="uphone" type="text"/>
+					</li>
+					<li>
+						<label for="">选择头像文件：</label>
+						
+					</li>
+						<input name="file" type="file"><br>
+						<br>
+					<a th:href="tologin" >已有账号，去登录</a>
+					
+				</ol>
+				<div class="registError"></div>
+				<input value="注 册" onclick="reg()" type="button" class="btn-submit" />
+				
+			</form>
+		</div>
+<p align="center">适用浏览器：IE8、360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. </p>
+<p align="center">来源：<a href="http://sc.chinaz.com/" target="_blank">站长素材</a></p>
+
+	</body>
+</html>

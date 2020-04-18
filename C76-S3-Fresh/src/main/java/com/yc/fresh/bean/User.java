@@ -17,7 +17,7 @@ public class User {
 
     private String ufilename;
 
-    private String utype;
+    private Integer utype;
 
     private Integer ustatus;
 
@@ -89,12 +89,12 @@ public class User {
         this.ufilename = ufilename == null ? null : ufilename.trim();
     }
 
-    public String getUtype() {
+    public Integer getUtype() {
         return utype;
     }
 
-    public void setUtype(String utype) {
-        this.utype = utype == null ? null : utype.trim();
+    public void setUtype(Integer utype) {
+        this.utype = utype;
     }
 
     public Integer getUstatus() {

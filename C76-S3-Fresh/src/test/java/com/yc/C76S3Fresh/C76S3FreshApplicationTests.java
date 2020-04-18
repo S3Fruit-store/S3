@@ -8,41 +8,36 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.util.Assert;
 
-import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
-import com.yc.fresh.C76S3FreshApplication;
 import com.yc.fresh.bean.Product;
-import com.yc.fresh.bean.ProductExample;
-import com.yc.fresh.bean.ProductExample.Criteria;
 import com.yc.fresh.dao.ProductMapper;
 import com.yc.fresh.dao.UserMapper;
 
-@SpringBootTest(classes=C76S3FreshApplication.class)
+import net.bytebuddy.implementation.bind.MethodDelegationBinder.AmbiguityResolver;
+
+@SpringBootTest
 class C76S3FreshApplicationTests {
 	
-
-	@Resource
-	private ProductMapper pm;
 	@Resource
 	private UserMapper um;
-	
+	@Resource
+	private ProductMapper pm;
 	@Test 
 	void contextLoads() {
 		Assert.isTrue(um.selectByExample(null).size() > 0, "结果集数量不正确!");
 	}
-
+	
 	@Test
-	void HotProduct(){
-		Assert.isTrue(pm.selectByExample(null).size() > 0, "结果集数量不正确!");
+	void test1(){
 		
-		ProductExample pe =new ProductExample();
-		pe.setOrderByClause("fnumber DESC");//降序排列
+		PageHelper.startPage(1, 15);
 		
-		Page<Product> page=PageHelper.startPage(1, 6);
-		pm.selectByExample(pe);
+		List<Product> list =pm.selectByExample(null);
 		
-		for (Product product : page) {
+		for(Product product: list){
 			System.out.println(product.getFname());
 		}
+		
 	}
+
 }

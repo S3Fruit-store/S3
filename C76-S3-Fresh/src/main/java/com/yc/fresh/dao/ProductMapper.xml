@@ -10,6 +10,7 @@
     <result column="ftime" jdbcType="TIMESTAMP" property="ftime" />
     <result column="ffreshtime" jdbcType="VARCHAR" property="ffreshtime" />
     <result column="fprice" jdbcType="REAL" property="fprice" />
+    <result column="ffilename" jdbcType="VARCHAR" property="ffilename" />
     <result column="fnumber" jdbcType="INTEGER" property="fnumber" />
     <result column="ftemp1" jdbcType="VARCHAR" property="ftemp1" />
     <result column="ftemp2" jdbcType="VARCHAR" property="ftemp2" />
@@ -73,8 +74,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    fid, fname, fparenttype, ftype, faddress, ftime, ffreshtime, fprice, fnumber, ftemp1, 
-    ftemp2
+    fid, fname, fparenttype, ftype, faddress, ftime, ffreshtime, fprice, ffilename, fnumber, 
+    ftemp1, ftemp2
   </sql>
   <select id="selectByExample" parameterType="com.yc.fresh.bean.ProductExample" resultMap="BaseResultMap">
     select
@@ -112,12 +113,12 @@
     </selectKey>
     insert into product (fname, fparenttype, ftype, 
       faddress, ftime, ffreshtime, 
-      fprice, fnumber, ftemp1, 
-      ftemp2)
+      fprice, ffilename, fnumber, 
+      ftemp1, ftemp2)
     values (#{fname,jdbcType=VARCHAR}, #{fparenttype,jdbcType=VARCHAR}, #{ftype,jdbcType=VARCHAR}, 
       #{faddress,jdbcType=VARCHAR}, #{ftime,jdbcType=TIMESTAMP}, #{ffreshtime,jdbcType=VARCHAR}, 
-      #{fprice,jdbcType=REAL}, #{fnumber,jdbcType=INTEGER}, #{ftemp1,jdbcType=VARCHAR}, 
-      #{ftemp2,jdbcType=VARCHAR})
+      #{fprice,jdbcType=REAL}, #{ffilename,jdbcType=VARCHAR}, #{fnumber,jdbcType=INTEGER}, 
+      #{ftemp1,jdbcType=VARCHAR}, #{ftemp2,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.yc.fresh.bean.Product">
     <selectKey keyProperty="fid" order="AFTER" resultType="java.lang.Integer">
@@ -145,6 +146,9 @@
       </if>
       <if test="fprice != null">
         fprice,
+      </if>
+      <if test="ffilename != null">
+        ffilename,
       </if>
       <if test="fnumber != null">
         fnumber,
@@ -177,6 +181,9 @@
       </if>
       <if test="fprice != null">
         #{fprice,jdbcType=REAL},
+      </if>
+      <if test="ffilename != null">
+        #{ffilename,jdbcType=VARCHAR},
       </if>
       <if test="fnumber != null">
         #{fnumber,jdbcType=INTEGER},
@@ -222,6 +229,9 @@
       <if test="record.fprice != null">
         fprice = #{record.fprice,jdbcType=REAL},
       </if>
+      <if test="record.ffilename != null">
+        ffilename = #{record.ffilename,jdbcType=VARCHAR},
+      </if>
       <if test="record.fnumber != null">
         fnumber = #{record.fnumber,jdbcType=INTEGER},
       </if>
@@ -246,6 +256,7 @@
       ftime = #{record.ftime,jdbcType=TIMESTAMP},
       ffreshtime = #{record.ffreshtime,jdbcType=VARCHAR},
       fprice = #{record.fprice,jdbcType=REAL},
+      ffilename = #{record.ffilename,jdbcType=VARCHAR},
       fnumber = #{record.fnumber,jdbcType=INTEGER},
       ftemp1 = #{record.ftemp1,jdbcType=VARCHAR},
       ftemp2 = #{record.ftemp2,jdbcType=VARCHAR}
@@ -277,6 +288,9 @@
       <if test="fprice != null">
         fprice = #{fprice,jdbcType=REAL},
       </if>
+      <if test="ffilename != null">
+        ffilename = #{ffilename,jdbcType=VARCHAR},
+      </if>
       <if test="fnumber != null">
         fnumber = #{fnumber,jdbcType=INTEGER},
       </if>
@@ -298,6 +312,7 @@
       ftime = #{ftime,jdbcType=TIMESTAMP},
       ffreshtime = #{ffreshtime,jdbcType=VARCHAR},
       fprice = #{fprice,jdbcType=REAL},
+      ffilename = #{ffilename,jdbcType=VARCHAR},
       fnumber = #{fnumber,jdbcType=INTEGER},
       ftemp1 = #{ftemp1,jdbcType=VARCHAR},
       ftemp2 = #{ftemp2,jdbcType=VARCHAR}

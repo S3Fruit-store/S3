@@ -7,7 +7,7 @@ public class Order {
 
     private Integer uid;
 
-    private Integer onumber;
+    private String onumber;
 
     private String oname;
 
@@ -43,12 +43,12 @@ public class Order {
         this.uid = uid;
     }
 
-    public Integer getOnumber() {
+    public String getOnumber() {
         return onumber;
     }
 
-    public void setOnumber(Integer onumber) {
-        this.onumber = onumber;
+    public void setOnumber(String onumber) {
+        this.onumber = onumber == null ? null : onumber.trim();
     }
 
     public String getOname() {
