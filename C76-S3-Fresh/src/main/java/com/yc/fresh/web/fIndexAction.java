@@ -32,7 +32,7 @@ public class fIndexAction {
 		Page<Product> newproduct = PageHelper.startPage(1, 4);
 		pm.selectByExample(pe);
 		m.addAttribute("ftlist", newproduct);
-		System.out.println(null);
+
 		
 		return "index";
 	}
