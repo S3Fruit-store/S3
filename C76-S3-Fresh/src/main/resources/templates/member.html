@@ -37,7 +37,7 @@
             <div class="left_m">
             	<div class="left_m_t t_bg2">会员中心</div>
                 <ul>
-                	<li><a th:href="member">用户信息</a></li>
+                	<li><a th:href="tomember">用户信息</a></li>
                     <li><a th:href="member_order">我的订单</a></li>
                     <li><a href="#">推广链接</a></li>
                     <li><a href="#">我的评论</a></li>
@@ -52,13 +52,13 @@
             </div>
             
         </div>
-		<div class="m_right" th:each=" user: ${ulist} ">
+		<div class="m_right" >
         	<div class="m_des">
             	<table border="0" style="width:870px; line-height:22px;" cellspacing="0" cellpadding="0">
                   <tr valign="top">
                     <td width="115"><img src="#" width="90" height="90" /></td>
                     <td>
-                    	<div class="m_user" th:text="${user.uname}" >TRACY</div>
+                    	<div class="m_user" th:text="${session.loginedUser.uname}" >TRACY</div>
                         <p>
                             等级：注册用户 <br />
                             <font color="#ff4e00">您还差 270 积分达到 分红100</font><br />
@@ -96,16 +96,16 @@
             <table border="0" class="acc_tab" style="width:870px;" cellspacing="0" cellpadding="0">
               <tr>
                 <td class="td_l">用户ID： </td>
-                <td th:text="${user.uaccount}">12345678</td>
+                <td th:text="${session.loginedUser.uaccount}">12345678</td>
               </tr>
               
               <tr>
                 <td class="td_l b_none">电  话：</td>
-                <td th:text="${user.uphone}">186****1234</td>
+                <td th:text="${session.loginedUser.uphone}">186****1234</td>
               </tr>
               <tr>
                 <td class="td_l">邮   箱： </td>
-                <td th:text="${user.uemail}">*******789@qq.com</td>
+                <td th:text="${session.loginedUser.uemail}">*******789@qq.com</td>
               </tr>
             
               <tr>

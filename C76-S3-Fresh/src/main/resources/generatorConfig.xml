@@ -46,7 +46,7 @@
 			<!-- 配置自增列 -->
 			<generatedKey column="eid" sqlStatement="mysql" identity="true" />
 		</table>
-		<table tableName="order">
+		<table tableName="bill">
 			<!-- 配置自增列 -->
 			<generatedKey column="oid" sqlStatement="mysql" identity="true" />
 		</table>

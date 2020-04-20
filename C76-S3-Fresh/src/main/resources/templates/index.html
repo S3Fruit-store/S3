@@ -47,7 +47,7 @@
 
                 <div th:each=" f : ${fhlist} " class="rcr">
                     <div class="rcr-top">
-                        <img th:src="${f.ffilename}" width="100%">
+                        <img th:src=" 'images/product/'+${f.ffilename}" width="100%">
                     </div>
                     <div class="rcr-bot">
                         <div th:text="${f.fname}" class="rb-top">
@@ -61,7 +61,7 @@
                                 <span class="second_Marketprice">￥0.00</span>
                             </div>
                         <div class="buy">
-                            <a class="second_mallBuy" th:href="'orange?id='+${f.fid}">
+                            <a class="second_mallBuy" th:href="'orange?fid='+${f.fid}">
                                 <span style="color: white;">购买</span>
                             </a>
                         </div>
@@ -74,6 +74,7 @@
     </div>
 
     <!--果园推荐结束-->
+  </div>
 </div>
 <!--每日新品特卖-->
     <div class="rec-bottom clear">
@@ -141,13 +142,17 @@
                     </div>
                     <div>
                         <font style="color: rgb(243, 151, 0);" color="#f39700">
-                    <b>
-                        <span style="font-size: 42px;">6.8</span>
-                    </b><span style="font-size: 42px;">
-                    <b>折</b>
-                    <span style="font-size: 18px;">
-                        <font style="color: rgb(53, 53, 53);" color="#353535">起</font>
-                    </span></span></font></div>
+	                    	<b>
+	                        	<span style="font-size: 42px;">6.8</span>
+	                   		</b>
+	                   		<span style="font-size: 42px;">
+	                   			<b>折</b>
+	                    		<span style="font-size: 18px;">
+	                        		<font style="color: rgb(53, 53, 53);" color="#353535">起</font>
+	                    		</span>
+	                    	</span>
+                    	</font>
+                    </div>
                 </font>
             </div>
             <div class="xiqing">
@@ -161,10 +166,18 @@
 
     </div>
     <div class="new-bottom clear">
-        <div class="nw-b" th:each=" f : ${ftlist} " style="margin:0">
-            <img th:src="${f.ffilename}">
+        <div class="nw-b">
+            <img src="images/nw-2.jpg">
         </div>
-        
+        <div class="nw-b">
+            <img src="images/nw-3.jpg">
+        </div>
+        <div class="nw-b">
+            <img src="images/nw-4.jpg">
+        </div>
+        <div class="nw-b" style="margin:0">
+            <img src="images/nw-5.jpg">
+        </div>
     </div>
     <!--每日新品特卖结束-->
     <!--蔬果资讯-->
