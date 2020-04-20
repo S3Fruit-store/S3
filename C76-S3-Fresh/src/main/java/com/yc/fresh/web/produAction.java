@@ -22,7 +22,6 @@ import com.yc.fresh.dao.ProductdetailMapper;
 
 @Controller
 public class produAction {
-	
 	@Resource
 	private ProductMapper pm;
 	@Resource
@@ -57,4 +56,5 @@ public class produAction {
 		
 		return "orange";
 	}
+	
 }
