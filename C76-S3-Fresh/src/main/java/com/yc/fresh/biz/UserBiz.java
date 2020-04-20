@@ -74,4 +74,23 @@ public class UserBiz {
 		
 	}
 	
+
+	public User backLogin(@Valid User user) throws BizException {
+		UserExample ue = new UserExample();
+		ue.or().andUaccountEqualTo(user.getUaccount()).andUpwdEqualTo(user.getUpwd()
+				).andUtypeEqualTo(2);
+		/*
+		 * ue.or().andUnameEqualTo(user.getUaccount()).andUpwdEqualTo(user.getUpwd());
+		 */
+		
+		List<User> list = um.selectByExample(ue);
+
+		if (list.size() == 0) {
+			throw new BizException(103, "name", "账户名或密码错误!");
+		} else {
+			return list.get(0);
+		}
+
+	}
+	
 }

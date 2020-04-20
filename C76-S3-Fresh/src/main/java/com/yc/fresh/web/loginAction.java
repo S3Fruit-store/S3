@@ -43,7 +43,7 @@ public class loginAction {
 	}
 	@PostMapping("login")
 	@ResponseBody
-	public ModelAndView login(@Valid User user,Errors errors,HttpSession session,
+	public ModelAndView login(@Valid User user,HttpSession session,
 			ModelAndView mav,@SessionAttribute(name="uri",required=false)String uri) {
 		
 		try {
@@ -145,6 +145,28 @@ public class loginAction {
 		}
 	}
 	
+	@GetMapping("tobackLogin")
+	public String back() {
+		return "back/back_login";
+	}
+	
+	
+	@PostMapping("backLogin")
+	@ResponseBody
+	public String backLogin(@Valid User user,HttpSession session) {
+		try {
+			User dbuser = ubiz.backLogin(user);
+			session.setAttribute("superUser", dbuser);
+			return "back/back_index";
+		} catch (BizException e) {
+			e.printStackTrace();
+			
+			return "back/back_login";
+		}
+			
+		
+		
+	}
 	
 	
 	

@@ -35,19 +35,19 @@ public class produAction {
 		pe.createCriteria().andFparenttypeEqualTo(fparenttype);
 		pm.selectByExample(pe);
 		m.addAttribute("alist", pg);
-		PageInfo <Product>  pageInfo = pg.toPageInfo();
 		
+		PageInfo <Product>  pageInfo = pg.toPageInfo();
 		m.addAttribute("plist", pageInfo);
 		return "produ";
 	}
 	@GetMapping({ "orange" })
 	public String orange(Integer fid, Model m) {
 		Product pg = pm.selectByPrimaryKey(fid);
+		m.addAttribute("alist", pg);
+		
 		ProductdetailExample pde =new ProductdetailExample();
 		pde.createCriteria().andFidEqualTo(fid);
 		List<Productdetail> pd= pdm.selectByExample(pde);
-		m.addAttribute("alist", pg);
-		
 		m.addAttribute("plist", pd);
 		
 		return "orange";
