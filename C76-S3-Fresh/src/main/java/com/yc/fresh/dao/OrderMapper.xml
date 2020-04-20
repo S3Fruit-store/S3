@@ -4,7 +4,7 @@
   <resultMap id="BaseResultMap" type="com.yc.fresh.bean.Order">
     <id column="oid" jdbcType="INTEGER" property="oid" />
     <result column="uid" jdbcType="INTEGER" property="uid" />
-    <result column="onumber" jdbcType="INTEGER" property="onumber" />
+    <result column="onumber" jdbcType="VARCHAR" property="onumber" />
     <result column="oname" jdbcType="VARCHAR" property="oname" />
     <result column="ophone" jdbcType="VARCHAR" property="ophone" />
     <result column="oaddress" jdbcType="VARCHAR" property="oaddress" />
@@ -114,7 +114,7 @@
       ophone, oaddress, ocost, 
       otype, otime, onote, 
       otemp1, otemp2)
-    values (#{uid,jdbcType=INTEGER}, #{onumber,jdbcType=INTEGER}, #{oname,jdbcType=VARCHAR}, 
+    values (#{uid,jdbcType=INTEGER}, #{onumber,jdbcType=VARCHAR}, #{oname,jdbcType=VARCHAR}, 
       #{ophone,jdbcType=VARCHAR}, #{oaddress,jdbcType=VARCHAR}, #{ocost,jdbcType=REAL}, 
       #{otype,jdbcType=INTEGER}, #{otime,jdbcType=TIMESTAMP}, #{onote,jdbcType=VARCHAR}, 
       #{otemp1,jdbcType=VARCHAR}, #{otemp2,jdbcType=VARCHAR})
@@ -164,7 +164,7 @@
         #{uid,jdbcType=INTEGER},
       </if>
       <if test="onumber != null">
-        #{onumber,jdbcType=INTEGER},
+        #{onumber,jdbcType=VARCHAR},
       </if>
       <if test="oname != null">
         #{oname,jdbcType=VARCHAR},
@@ -211,7 +211,7 @@
         uid = #{record.uid,jdbcType=INTEGER},
       </if>
       <if test="record.onumber != null">
-        onumber = #{record.onumber,jdbcType=INTEGER},
+        onumber = #{record.onumber,jdbcType=VARCHAR},
       </if>
       <if test="record.oname != null">
         oname = #{record.oname,jdbcType=VARCHAR},
@@ -249,7 +249,7 @@
     update order
     set oid = #{record.oid,jdbcType=INTEGER},
       uid = #{record.uid,jdbcType=INTEGER},
-      onumber = #{record.onumber,jdbcType=INTEGER},
+      onumber = #{record.onumber,jdbcType=VARCHAR},
       oname = #{record.oname,jdbcType=VARCHAR},
       ophone = #{record.ophone,jdbcType=VARCHAR},
       oaddress = #{record.oaddress,jdbcType=VARCHAR},
@@ -270,7 +270,7 @@
         uid = #{uid,jdbcType=INTEGER},
       </if>
       <if test="onumber != null">
-        onumber = #{onumber,jdbcType=INTEGER},
+        onumber = #{onumber,jdbcType=VARCHAR},
       </if>
       <if test="oname != null">
         oname = #{oname,jdbcType=VARCHAR},
@@ -305,7 +305,7 @@
   <update id="updateByPrimaryKey" parameterType="com.yc.fresh.bean.Order">
     update order
     set uid = #{uid,jdbcType=INTEGER},
-      onumber = #{onumber,jdbcType=INTEGER},
+      onumber = #{onumber,jdbcType=VARCHAR},
       oname = #{oname,jdbcType=VARCHAR},
       ophone = #{ophone,jdbcType=VARCHAR},
       oaddress = #{oaddress,jdbcType=VARCHAR},

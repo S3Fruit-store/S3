@@ -235,52 +235,62 @@ public class OrderExample {
             return (Criteria) this;
         }
 
-        public Criteria andOnumberEqualTo(Integer value) {
+        public Criteria andOnumberEqualTo(String value) {
             addCriterion("onumber =", value, "onumber");
             return (Criteria) this;
         }
 
-        public Criteria andOnumberNotEqualTo(Integer value) {
+        public Criteria andOnumberNotEqualTo(String value) {
             addCriterion("onumber <>", value, "onumber");
             return (Criteria) this;
         }
 
-        public Criteria andOnumberGreaterThan(Integer value) {
+        public Criteria andOnumberGreaterThan(String value) {
             addCriterion("onumber >", value, "onumber");
             return (Criteria) this;
         }
 
-        public Criteria andOnumberGreaterThanOrEqualTo(Integer value) {
+        public Criteria andOnumberGreaterThanOrEqualTo(String value) {
             addCriterion("onumber >=", value, "onumber");
             return (Criteria) this;
         }
 
-        public Criteria andOnumberLessThan(Integer value) {
+        public Criteria andOnumberLessThan(String value) {
             addCriterion("onumber <", value, "onumber");
             return (Criteria) this;
         }
 
-        public Criteria andOnumberLessThanOrEqualTo(Integer value) {
+        public Criteria andOnumberLessThanOrEqualTo(String value) {
             addCriterion("onumber <=", value, "onumber");
             return (Criteria) this;
         }
 
-        public Criteria andOnumberIn(List<Integer> values) {
+        public Criteria andOnumberLike(String value) {
+            addCriterion("onumber like", value, "onumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andOnumberNotLike(String value) {
+            addCriterion("onumber not like", value, "onumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andOnumberIn(List<String> values) {
             addCriterion("onumber in", values, "onumber");
             return (Criteria) this;
         }
 
-        public Criteria andOnumberNotIn(List<Integer> values) {
+        public Criteria andOnumberNotIn(List<String> values) {
             addCriterion("onumber not in", values, "onumber");
             return (Criteria) this;
         }
 
-        public Criteria andOnumberBetween(Integer value1, Integer value2) {
+        public Criteria andOnumberBetween(String value1, String value2) {
             addCriterion("onumber between", value1, value2, "onumber");
             return (Criteria) this;
         }
 
-        public Criteria andOnumberNotBetween(Integer value1, Integer value2) {
+        public Criteria andOnumberNotBetween(String value1, String value2) {
             addCriterion("onumber not between", value1, value2, "onumber");
             return (Criteria) this;
         }

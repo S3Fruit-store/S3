@@ -1,23 +1,40 @@
 package com.yc.fresh.web;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttribute;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.yc.fresh.bean.Cart;
+import com.yc.fresh.bean.CartExample;
 import com.yc.fresh.bean.Product;
 import com.yc.fresh.bean.ProductExample;
 import com.yc.fresh.bean.Productdetail;
 import com.yc.fresh.bean.ProductdetailExample;
+import com.yc.fresh.bean.User;
+import com.yc.fresh.bean.UserExample;
+import com.yc.fresh.biz.BizException;
+import com.yc.fresh.dao.CartMapper;
 import com.yc.fresh.dao.ProductMapper;
 import com.yc.fresh.dao.ProductdetailMapper;
+import com.yc.fresh.vo.Result;
 
 
 @Controller
@@ -27,6 +44,8 @@ public class produAction {
 	private ProductMapper pm;
 	@Resource
 	private ProductdetailMapper pdm;
+	@Resource
+	private CartMapper cm;
 	
 	@GetMapping({ "/", "index", "index.html" })
 	public String index() {
@@ -34,14 +53,14 @@ public class produAction {
 	}
 	
 	@GetMapping({ "produ" })
-	public String produ(@RequestParam(defaultValue = "1") Integer page,@RequestParam(defaultValue = "国产") String fparenttype, Model m) {
-		Page<Product> pg = PageHelper.startPage(page, 5,true);
+	public String produ(@RequestParam(defaultValue = "1") Integer page,@RequestParam(defaultValue = "国产水果") String fparenttype, Model m) {
+		Page<Product> pg = PageHelper.startPage(page,6,true);
 		ProductExample pe = new ProductExample();
 		pe.createCriteria().andFparenttypeEqualTo(fparenttype);
 		pm.selectByExample(pe);
 		m.addAttribute("alist", pg);
-		PageInfo<Product>  pageInfo=pg.toPageInfo();
-		System.out.println(pageInfo.toString());
+		PageInfo <Product>  pageInfo = pg.toPageInfo();
+		
 		m.addAttribute("plist", pageInfo);
 		return "produ";
 	}
@@ -54,6 +73,28 @@ public class produAction {
 		m.addAttribute("alist", pg);
 		System.out.println(pd.toString());
 		m.addAttribute("plist", pd);
+		m.addAttribute("fid",fid);
+		
 		return "orange";
+	}
+	
+	@PostMapping("addcart")
+	@ResponseBody
+	public Result addcart(@SessionAttribute("loginedUser") User user,Cart cart,Integer fid,Integer ccount){
+		cart.setUid(user.getUid());
+		cart.setFid(fid);
+		cart.setCcount(ccount);;
+		cart.setCtime(new Date());
+		System.out.println("=================================");
+		System.out.println(cart.toString());
+		int code=cm.insert(cart);
+		if (code>0) {
+			Result result =new Result(code);
+			return new Result(result.getCode(),"加入购物车成功");
+		}else{
+			Result result =new Result(code);
+			return new Result(result.getCode(),"加入购物车失败");
+		}
+	
 	}
 }

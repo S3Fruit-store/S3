@@ -120,12 +120,4 @@ public class User {
     public void setUtemp2(String utemp2) {
         this.utemp2 = utemp2 == null ? null : utemp2.trim();
     }
-
-	@Override
-	public String toString() {
-		return "User [uid=" + uid + ", uaccount=" + uaccount + ", uname=" + uname + ", upwd=" + upwd + ", usex=" + usex
-				+ ", uphone=" + uphone + ", uemail=" + uemail + ", ufilename=" + ufilename + ", utype=" + utype
-				+ ", ustatus=" + ustatus + ", utemp1=" + utemp1 + ", utemp2=" + utemp2 + "]";
-	}
-    
 }

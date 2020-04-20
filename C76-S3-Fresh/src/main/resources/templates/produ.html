@@ -30,8 +30,8 @@
                         <p>产品分类</p>
                     </div>
                     <div class="cltcon">
-                        <p><a th:href="'produ?fparenttype='+'国产'">国产水果</a> </p>
-                        <p><a th:href="'produ?fparenttype='+'进口'"> 进口水果</a></p>
+                        <p><a th:href="'produ?fparenttype='+'国产水果'">国产水果</a> </p>
+                        <p><a th:href="'produ?fparenttype='+'进口水果'"> 进口水果</a></p>
                         <p style="border-bottom:0px dashed #999999;"><a href="#">新鲜时蔬</a></p>
                     </div>
 
@@ -65,12 +65,12 @@
 
             </div>
 
-            <div class="rec-right">
+            <div class="rec-right" style="height: 990px;">
                 <div class="bd">
                     <div class="bd1"  style="display: block">
                         <div th:each=" a : ${alist}" class="rcr">
                             <div class="rcr-top">
-                                <img th:src="@{${a.ffilename}}" width="100%">
+                                <img th:src=" 'images/product/' + ${a.ffilename}" width="100%">
                             </div>
                             <div class="rcr-bot">
                                 <div  class="rb-top">
@@ -94,7 +94,7 @@
                 <div class="hd">
                     <div class="net"><a th:href="'produ?page='+${plist.prePage}" >上一页</a></div>
                     <ul>
-                        <li>
+                        <li >
                         <a th:href="'produ?page='+${plist.pageNum}" class="active">
                         <span th:text="${plist.pageNum}" >1</span>
                         </a>
@@ -112,6 +112,7 @@
   </div>
  </div>
 </div>
+
 <!--主页内容结束-->
 <!--底部-->
 <div class="footer" th:replace="common/common::commfooter"></div>

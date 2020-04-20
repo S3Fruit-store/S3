@@ -45,10 +45,7 @@ public class IndexAction {
 	@ResponseBody
 	public ModelAndView login(@Valid User user,Errors errors,HttpSession session,
 			ModelAndView mav,@SessionAttribute(name="uri",required=false)String uri) {
-		/*
-		 * if(errors.hasFieldErrors("uaccount") || errors.hasFieldErrors("upwd")) {
-		 * return new Result(1, "请输入用户名和密码！"); }
-		 */
+		
 		try {
 			User dbuser = ubiz.login(user);
 			session.setAttribute("loginedUser", dbuser);
@@ -147,6 +144,7 @@ public class IndexAction {
 			
 		}
 	}
+	
 	
 	
 	
