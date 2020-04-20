@@ -2,7 +2,7 @@ package com.yc.fresh.bean;
 
 import java.util.Date;
 
-public class Order {
+public class Bill {
     private Integer oid;
 
     private Integer uid;

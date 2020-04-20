@@ -4,22 +4,17 @@
 	<meta>
 	<title>登录 - 果然 - Thousands Find</title>
 	<link rel="stylesheet" type="text/css" href="css/register-login.css">
-	<!-- <script type="text/javascript">
+	 <script type="text/javascript">
 		function login(){
 			$.post("login", 
 				{uaccount:$("#loginModalUserNmae").val(),
 			 	upwd:$("#loginModalUserPwd").val()} ,
-					function(result){
-					 console.info(result);
-				 	if(result.code == 0){
-						
-						 alert("登录成功");
-					 } else{
-						 alert("用户名或密码错误");
-					 }
+					function(msg){
+					 console.info(msg);
+				 	
 				 });
 	}
-</script> -->
+</script> 
 </head>
 <body>
 <div id="box"></div>
