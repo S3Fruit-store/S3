@@ -28,14 +28,9 @@ public class produAction {
 	@Resource
 	private ProductdetailMapper pdm;
 	
-	@GetMapping({ "/", "index", "index.html" })
-	public String index() {
-		return "index";
-	}
-	
 	@GetMapping({ "produ" })
 	public String produ(@RequestParam(defaultValue = "1") Integer page,@RequestParam(defaultValue = "国产水果") String fparenttype, Model m) {
-		Page<Product> pg = PageHelper.startPage(page, 12,true);
+		Page<Product> pg = PageHelper.startPage(page, 6);
 		ProductExample pe = new ProductExample();
 		pe.createCriteria().andFparenttypeEqualTo(fparenttype);
 		pm.selectByExample(pe);
@@ -47,12 +42,12 @@ public class produAction {
 	}
 	@GetMapping({ "orange" })
 	public String orange(Integer fid, Model m) {
-		Product pg= pm.selectByPrimaryKey(fid);
+		Product pg = pm.selectByPrimaryKey(fid);
 		ProductdetailExample pde =new ProductdetailExample();
 		pde.createCriteria().andFidEqualTo(fid);
 		List<Productdetail> pd= pdm.selectByExample(pde);
 		m.addAttribute("alist", pg);
-		System.out.println(pd.toString());
+		
 		m.addAttribute("plist", pd);
 		
 		return "orange";
