@@ -47,7 +47,7 @@
 
                 <div th:each=" f : ${fhlist} " class="rcr">
                     <div class="rcr-top">
-                        <img th:src="${f.ftype}" width="100%">
+                        <img th:src="${f.ffilename}" width="100%">
                     </div>
                     <div class="rcr-bot">
                         <div th:text="${f.fname}" class="rb-top">
@@ -161,18 +161,10 @@
 
     </div>
     <div class="new-bottom clear">
-        <div class="nw-b">
-            <img src="images/nw-2.jpg">
+        <div class="nw-b" th:each=" f : ${ftlist} " style="margin:0">
+            <img th:src="${f.ffilename}">
         </div>
-        <div class="nw-b">
-            <img src="images/nw-3.jpg">
-        </div>
-        <div class="nw-b">
-            <img src="images/nw-4.jpg">
-        </div>
-        <div class="nw-b" style="margin:0">
-            <img src="images/nw-5.jpg">
-        </div>
+        
     </div>
     <!--每日新品特卖结束-->
     <!--蔬果资讯-->
