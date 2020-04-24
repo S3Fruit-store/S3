@@ -23,7 +23,9 @@ public class C76S3FreshApplication implements WebMvcConfigurer {
 		registry.addInterceptor(new LoginInterceptor())
 				// 添加拦截规则
 				.addPathPatterns("/tocart")
-				.addPathPatterns("/tomember");
+				.addPathPatterns("/tomember")
+				.addPathPatterns("/addcart");
+		
 	}
 	
 }

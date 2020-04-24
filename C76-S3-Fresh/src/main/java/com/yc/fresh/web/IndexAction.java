@@ -56,10 +56,7 @@ public class IndexAction {
 		return "index";
 	}
 	
-	/*
-	 * @GetMapping({ "orange" }) public String orange(Integer id,Model m) { Product
-	 * p=pm.selectByPrimaryKey(id); m.addAttribute(p); return "orange"; }
-	 */
+	
 	
 	
 	

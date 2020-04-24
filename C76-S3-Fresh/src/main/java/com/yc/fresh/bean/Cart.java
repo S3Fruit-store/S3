@@ -14,7 +14,7 @@ public class Cart {
     private Date ctime;
     
     private Product product;
-
+    
     public Product getProduct() {
 		return product;
 	}
