@@ -77,28 +77,30 @@ public class produAction {
 	@PostMapping("addcart")
 	@ResponseBody
 	public Result addcart(@SessionAttribute("loginedUser") User user,Cart cart,Integer fid,Integer ccount){
+		System.out.println("count="+ccount);
 		CartExample ce =new CartExample();
 		ce.createCriteria().andUidEqualTo(user.getUid());
 		List<Cart> cart2 =cm.selectByExample(ce);
 		int j = 0;
 		for(Cart c :cart2){
 			int i=c.getFid();
+			System.out.println("i=" + i);
 			if(i==fid){
+				
 				j =	c.getCcount()+ccount;
 			}else{
 				j =	ccount;
 			}
 		}
+		System.out.println("j="+j);
 		if(j!=ccount){
-			cart.setUid(user.getUid());
-			cart.setFid(fid);
 			cart.setCtime(new Date());
 			
 			cart.setCcount(j);
 			
-			ce.createCriteria().andFidEqualTo(fid);
+			ce.createCriteria().andFidEqualTo(fid).andUidEqualTo(user.getUid());
 			
-			int code=cm.updateByExample(cart, ce);
+			int code=cm.updateByExampleSelective(cart, ce);
 			System.out.println(code);
 			if (code>0) {
 				Result result =new Result(code);
