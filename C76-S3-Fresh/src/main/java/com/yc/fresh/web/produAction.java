@@ -47,11 +47,6 @@ public class produAction {
 	@Resource
 	private CartMapper cm;
 	
-	@GetMapping({ "/", "index", "index.html" })
-	public String index() {
-		return "index";
-	}
-	
 	@GetMapping({ "produ" })
 	public String produ(@RequestParam(defaultValue = "1") Integer page,@RequestParam(defaultValue = "国产水果") String fparenttype, Model m) {
 		Page<Product> pg = PageHelper.startPage(page,6,true);
@@ -78,23 +73,56 @@ public class produAction {
 		return "orange";
 	}
 	
+
 	@PostMapping("addcart")
 	@ResponseBody
 	public Result addcart(@SessionAttribute("loginedUser") User user,Cart cart,Integer fid,Integer ccount){
-		cart.setUid(user.getUid());
-		cart.setFid(fid);
-		cart.setCcount(ccount);;
-		cart.setCtime(new Date());
-		System.out.println("=================================");
-		System.out.println(cart.toString());
-		int code=cm.insert(cart);
-		if (code>0) {
-			Result result =new Result(code);
-			return new Result(result.getCode(),"加入购物车成功");
-		}else{
-			Result result =new Result(code);
-			return new Result(result.getCode(),"加入购物车失败");
+		CartExample ce =new CartExample();
+		ce.createCriteria().andUidEqualTo(user.getUid());
+		List<Cart> cart2 =cm.selectByExample(ce);
+		int j = 0;
+		for(Cart c :cart2){
+			int i=c.getFid();
+			if(i==fid){
+				j =	c.getCcount()+ccount;
+			}else{
+				j =	ccount;
+			}
 		}
+		if(j!=ccount){
+			cart.setUid(user.getUid());
+			cart.setFid(fid);
+			cart.setCtime(new Date());
+			
+			cart.setCcount(j);
+			
+			ce.createCriteria().andFidEqualTo(fid);
+			
+			int code=cm.updateByExample(cart, ce);
+			System.out.println(code);
+			if (code>0) {
+				Result result =new Result(code);
+				return new Result(result.getCode(),"加入购物车成功");
+			}else{
+				Result result =new Result(code);
+				return new Result(result.getCode(),"加入购物车失败");
+			}
+		}else{
+			cart.setUid(user.getUid());
+			cart.setFid(fid);
+			cart.setCtime(new Date());
+			cart.setCcount(ccount);
+			int code=cm.insert(cart);
+			System.out.println(code);
+			if (code>0) {
+				Result result =new Result(code);
+				return new Result(result.getCode(),"加入购物车成功");
+			}else{
+				Result result =new Result(code);
+				return new Result(result.getCode(),"加入购物车失败");
+			}
+		}
+		
 	
 	}
 }
