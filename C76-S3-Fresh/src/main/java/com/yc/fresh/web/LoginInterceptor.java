@@ -23,7 +23,7 @@ public class LoginInterceptor implements HandlerInterceptor{
 			// 保存当前用户访问的地址和参数( GET )
 			session.setAttribute("uri", uri);
 			response.sendRedirect("http://127.0.0.1/tologin");
-			
+			return false;
 		}
 		return true;
 	}

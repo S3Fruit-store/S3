@@ -1,5 +1,5 @@
-/**************顶部样式***************/
-#top{ height:30px; background:#f9fafa; border-bottom:1px solid #D7D7D7; line-height:30px;font-family:"新宋体";}
+/**************椤堕儴鏍峰紡***************/
+#top{ height:30px; background:#f9fafa; border-bottom:1px solid #D7D7D7; line-height:30px;font-family:"鏂板畫浣�";}
 
 #top .hd_top_manu{ float: right;padding-top: 8px;line-height: 21px;}
 #top .clearfix .zhuce{ color:#C9C9C9;}
@@ -68,7 +68,7 @@ background: url(../images/indexhead_sprite.png?1379671) no-repeat right -285px;
 #top .clearfix .hd_menu_tit a{ color:#666666}
 #top .clearfix .hd_menu_tit a:hover{color: #006600;}
 /**********************************************************/
-/*顶部导航*/
+/*椤堕儴瀵艰埅*/
 .headr{
     width: 100%;
     height: 107px;
@@ -140,7 +140,7 @@ background: url(../images/indexhead_sprite.png?1379671) no-repeat right -285px;
     color: #c6c6c6;
     border: 1px solid #E6E6E6;
 }
-/*顶部导航结束*/
+/*椤堕儴瀵艰埅缁撴潫*/
 .her-banner{
     width: 100%;
     height: 550px;
@@ -150,7 +150,7 @@ background: url(../images/indexhead_sprite.png?1379671) no-repeat right -285px;
     background-position: 50% 50%;
     background-repeat: no-repeat no-repeat;
 }
-/*主页内容*/
+/*涓婚〉鍐呭*/
 .content{
     position: relative;
     width: 1200px;
@@ -170,7 +170,7 @@ background: url(../images/indexhead_sprite.png?1379671) no-repeat right -285px;
     float: left;
     margin: 0 5px;
 }
-/*果园推荐开始*/
+/*鏋滃洯鎺ㄨ崘寮�濮�*/
 .recommand{
     float: left;
     width: 100%;
@@ -276,8 +276,8 @@ background: url(../images/indexhead_sprite.png?1379671) no-repeat right -285px;
     background-color:#4AB344 ;
 }
 
-/*果园推荐结束*/
-/*每日新品特卖轮播*/
+/*鏋滃洯鎺ㄨ崘缁撴潫*/
+/*姣忔棩鏂板搧鐗瑰崠杞挱*/
 .rec-bottom{
     width: 100%;
     height: 340px;
@@ -303,8 +303,9 @@ background: url(../images/indexhead_sprite.png?1379671) no-repeat right -285px;
     -webkit-transition: all 1s;
     z-index: 5;
 }
-.banner_1>img{
+.banner_1>a>img{
     float: left;
+    vertical-align:bottom;
 }
 .banner-bottom{
     float:left;
@@ -327,7 +328,7 @@ background: url(../images/indexhead_sprite.png?1379671) no-repeat right -285px;
 .banner-bottom li.active{
     background-color: #8c8c8c;
 }
-/*每日新品特卖轮播结束*/
+/*姣忔棩鏂板搧鐗瑰崠杞挱缁撴潫*/
 .new-nav{
     float: left;
     width: 100%;
@@ -378,10 +379,11 @@ background: url(../images/indexhead_sprite.png?1379671) no-repeat right -285px;
 }
 .nw-b img{
   margin-left:0px;
+  width:280px; height:190px;
     transition: all 0.5s
 }
-/*每日新品特卖结束*/
-/*蔬果资讯*/
+/*姣忔棩鏂板搧鐗瑰崠缁撴潫*/
+/*钄灉璧勮*/
 .fruits{
     float: left;
     margin-top: 100px;
@@ -438,8 +440,8 @@ font-size: 20px;
 .slideBox .hd ul li.on{ background:#000; color:#fff; }
 .slideBox .bd{ position:relative; height:100%; z-index:0;   }
 .slideBox .bd li{ zoom:1; vertical-align:middle; }
-/*蔬果资讯结束*/
-/*底部*/
+/*钄灉璧勮缁撴潫*/
+/*搴曢儴*/
 .footer{
     width: 100%;
     height: 566px;

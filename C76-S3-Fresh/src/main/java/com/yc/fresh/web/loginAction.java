@@ -43,7 +43,7 @@ public class loginAction {
 	}
 	@PostMapping("login")
 	@ResponseBody
-	public ModelAndView login(@Valid User user,Errors errors,HttpSession session,
+	public ModelAndView login(@Valid User user,HttpSession session,
 			ModelAndView mav,@SessionAttribute(name="uri",required=false)String uri) {
 		
 		try {
@@ -75,7 +75,7 @@ public class loginAction {
 	@PostMapping("reg")
 	@ResponseBody
 	public Result reg(@Valid User user,Errors errors,@RequestParam("file")MultipartFile file) throws IllegalStateException, IOException {
-		System.out.println(user);
+		
 		if(errors.hasFieldErrors()) {
 	 		return new Result(0,"用户注册失败",errors.getFieldErrors());
 	 	}
@@ -145,6 +145,47 @@ public class loginAction {
 		}
 	}
 	
+	@GetMapping("tobackLogin")
+	public String back() {
+		return "back/back_login";
+	}
+	
+	
+	@PostMapping("backLogin")
+	@ResponseBody
+	public Result backLogin(@Valid User user,HttpSession session,Errors errors) {
+		try {
+			User dbuser = ubiz.login(user);
+			if(dbuser.getUtype().equals(2)) {
+				session.setAttribute("superUser", dbuser);
+				return new Result(1,"登陆成功");
+			}else {
+				return new Result(2, "管理员账户名或密码错误");
+			}
+			
+		} catch (BizException e) {
+			errors.rejectValue(e.getName(), "" + e.getCode(),e.getMessage());
+	 		return new Result(e.getCode(), "管理员登录失败",errors.getFieldErrors());
+		}
+		
+		
+	}
+	@GetMapping("back_index")
+	public String backIndex() {
+		return "back/back_index";
+		
+	}
+	@GetMapping("toquit")
+	public String quit(HttpSession session) {
+		
+		try {
+            session .removeAttribute("superUser");
+        }catch (Exception e){
+        	e.printStackTrace();
+        }
+        
+        return "back/back_login";
+    }
 	
 	
 	

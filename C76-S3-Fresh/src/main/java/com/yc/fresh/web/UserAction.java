@@ -44,8 +44,8 @@ public class UserAction {
 	
 	 @GetMapping("tocart")
 	 public String tocart() {
-		  return "cart";
-	  
+		 
+		  return "redirect:cart";
 	 }
 	 
 

@@ -13,7 +13,7 @@
 		var formData = new FormData(registForm);
 		var fid =[[${fid}]];
 		var ccount=document.getElementById("ccount").value;
-		alert(ccount);
+		
 		$.ajax({
 			url : 'addcart?fid='+ fid
 					+'&ccount=' + ccount , 
@@ -27,6 +27,7 @@
 				}else {
 					/* console.info(res.data)	 */
 					alert('添加购物车失败');
+					
 					}
 				}
 			
