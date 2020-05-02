@@ -14,6 +14,7 @@
     <result column="fnumber" jdbcType="INTEGER" property="fnumber" />
     <result column="ftemp1" jdbcType="VARCHAR" property="ftemp1" />
     <result column="ftemp2" jdbcType="VARCHAR" property="ftemp2" />
+    
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>

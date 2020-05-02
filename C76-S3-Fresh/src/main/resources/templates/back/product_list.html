@@ -47,7 +47,7 @@
 <section class="rt_wrap content mCustomScrollbar">
  <div class="rt_content">
       <div class="page_title">
-       <h2 class="fl">商品列表示例</h2>
+       <h2 class="fl">商品列表</h2>
        <a href="product_detail.html" class="fr top_rt_btn add_icon">添加商品</a>
       </div>
       <section class="mtb">
@@ -65,7 +65,7 @@
         <th>货号</th>
         <th>单价</th>
         <th>单位</th>
-        <th>精品</th>
+        <th>促销</th>
         
         <th>热销</th>
         <th>已售</th>
@@ -74,18 +74,17 @@
        <tr th:each=" p : ${plist}">
         <td class="center"><img th:src=" 'images/product/' + ${p.ffilename}" width="50" height="50"/></td>
         <td th:text="${p.fname}">这里是产品名称</td>
-        <td class="center" th:text="${p.fparenttype}">A15902</td>
-        <td class="center"><strong class="rmb_icon" th:text="${p.fprice}">59.00</strong></td>
-        <td class="center" th:text="${p.faddress}">包</td>
+        <td class="center" th:text="${p.fparenttype}"></td>
+        <td class="center"><strong class="rmb_icon" th:text="${p.fprice}"></strong></td>
+        <td class="center" th:text="${p.faddress}"></td>
         <td class="center"><a title="是" class="link_icon" >&#88;</a></td>
         
         <td class="center"><a title="是" class="link_icon" th:if="${p.fnumber} >1000" 
-        		th:utext="&#89;"></a>&#88;</td>
-        <td class="center" th:text="${p.fnumber}">5559</td>
+        		th:text="是"></a></td>
+        <td class="center" th:text="${p.fnumber}"></td>
         <td class="center">
-         <a href="http://www.deathghost.cn" title="预览" class="link_icon" target="_blank">预览</a>
-         <a href="product_detail.html" title="编辑" class="link_icon">编辑</a>
-         <a href=" 'product_list?fid=' + ${p.fid}" title="删除" class="link_icon">删除</a>
+         <a th:href=" 'product_detail?fid=' + ${p.fid}" title="编辑" class="link_icon">详情</a>
+         <a th:href=" 'product_recycle?fid=' + ${p.fid}" title="删除" class="link_icon">删除</a>
         </td>
        </tr>
       </table>

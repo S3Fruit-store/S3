@@ -41,7 +41,6 @@ public class produAction {
 		Page<Product> pg = PageHelper.startPage(page,6,true);
 		ProductExample pe = new ProductExample();
 		pe.createCriteria().andFparenttypeEqualTo(fparenttype);
-		pe.createCriteria().andFtemp1EqualTo("1");
 		pm.selectByExample(pe);
 		m.addAttribute("alist", pg);
 		PageInfo <Product>  pageInfo = pg.toPageInfo();

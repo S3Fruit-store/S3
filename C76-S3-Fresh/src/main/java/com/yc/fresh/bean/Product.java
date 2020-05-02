@@ -27,7 +27,7 @@ public class Product {
 
     private String ftemp2;
 
-    public Integer getFid() {
+	public Integer getFid() {
         return fid;
     }
 
