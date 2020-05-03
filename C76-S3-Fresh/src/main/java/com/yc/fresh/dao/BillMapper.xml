@@ -13,7 +13,9 @@
     <result column="otime" jdbcType="TIMESTAMP" property="otime" />
     <result column="onote" jdbcType="VARCHAR" property="onote" />
     <result column="otemp1" jdbcType="VARCHAR" property="otemp1" />
-    <result column="otemp2" jdbcType="VARCHAR" property="otemp2" />
+    <result column="eid" jdbcType="VARCHAR" property="eid" />
+     <association property="express" column="eid"  
+    select="com.yc.fresh.dao.ExpressMapper.selectByPrimaryKey"></association>
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -74,7 +76,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    oid, uid, onumber, oname, ophone, oaddress, ocost, otype, otime, onote, otemp1, otemp2
+    oid, uid, onumber, oname, ophone, oaddress, ocost, otype, otime, onote, otemp1, eid
   </sql>
   <select id="selectByExample" parameterType="com.yc.fresh.bean.BillExample" resultMap="BaseResultMap">
     select
@@ -113,11 +115,11 @@
     insert into bill (uid, onumber, oname, 
       ophone, oaddress, ocost, 
       otype, otime, onote, 
-      otemp1, otemp2)
+      otemp1, eid)
     values (#{uid,jdbcType=INTEGER}, #{onumber,jdbcType=VARCHAR}, #{oname,jdbcType=VARCHAR}, 
       #{ophone,jdbcType=VARCHAR}, #{oaddress,jdbcType=VARCHAR}, #{ocost,jdbcType=REAL}, 
       #{otype,jdbcType=INTEGER}, #{otime,jdbcType=TIMESTAMP}, #{onote,jdbcType=VARCHAR}, 
-      #{otemp1,jdbcType=VARCHAR}, #{otemp2,jdbcType=VARCHAR})
+      #{otemp1,jdbcType=VARCHAR}, #{eid,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.yc.fresh.bean.Bill">
     <selectKey keyProperty="oid" order="AFTER" resultType="java.lang.Integer">
@@ -155,8 +157,8 @@
       <if test="otemp1 != null">
         otemp1,
       </if>
-      <if test="otemp2 != null">
-        otemp2,
+      <if test="eid != null">
+        eid,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -190,8 +192,8 @@
       <if test="otemp1 != null">
         #{otemp1,jdbcType=VARCHAR},
       </if>
-      <if test="otemp2 != null">
-        #{otemp2,jdbcType=VARCHAR},
+      <if test="eid != null">
+        #{eid,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -237,8 +239,8 @@
       <if test="record.otemp1 != null">
         otemp1 = #{record.otemp1,jdbcType=VARCHAR},
       </if>
-      <if test="record.otemp2 != null">
-        otemp2 = #{record.otemp2,jdbcType=VARCHAR},
+      <if test="record.eid != null">
+        eid = #{record.eid,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null">
@@ -258,7 +260,7 @@
       otime = #{record.otime,jdbcType=TIMESTAMP},
       onote = #{record.onote,jdbcType=VARCHAR},
       otemp1 = #{record.otemp1,jdbcType=VARCHAR},
-      otemp2 = #{record.otemp2,jdbcType=VARCHAR}
+      eid = #{record.eid,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -296,8 +298,8 @@
       <if test="otemp1 != null">
         otemp1 = #{otemp1,jdbcType=VARCHAR},
       </if>
-      <if test="otemp2 != null">
-        otemp2 = #{otemp2,jdbcType=VARCHAR},
+      <if test="eid != null">
+        eid = #{eid,jdbcType=VARCHAR},
       </if>
     </set>
     where oid = #{oid,jdbcType=INTEGER}
@@ -314,7 +316,7 @@
       otime = #{otime,jdbcType=TIMESTAMP},
       onote = #{onote,jdbcType=VARCHAR},
       otemp1 = #{otemp1,jdbcType=VARCHAR},
-      otemp2 = #{otemp2,jdbcType=VARCHAR}
+      eid = #{eid,jdbcType=VARCHAR}
     where oid = #{oid,jdbcType=INTEGER}
   </update>
 </mapper>

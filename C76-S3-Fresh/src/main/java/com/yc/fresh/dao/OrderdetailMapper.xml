@@ -7,6 +7,8 @@
     <result column="fid" jdbcType="INTEGER" property="fid" />
     <result column="pquintity" jdbcType="INTEGER" property="pquintity" />
     <result column="odcost" jdbcType="REAL" property="odcost" />
+     <association property="product" column="fid"  
+    select="com.yc.fresh.dao.ProductMapper.selectByPrimaryKey"></association>
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>

@@ -7,8 +7,6 @@
     <result column="fid" jdbcType="INTEGER" property="fid" />
     <result column="ccount" jdbcType="INTEGER" property="ccount" />
     <result column="ctime" jdbcType="TIMESTAMP" property="ctime" />
-    <association property="product" column="fid"  
-    select="com.yc.fresh.dao.ProductMapper.selectByPrimaryKey"></association>
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>

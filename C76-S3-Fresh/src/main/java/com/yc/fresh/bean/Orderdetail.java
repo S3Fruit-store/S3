@@ -10,8 +10,18 @@ public class Orderdetail {
     private Integer pquintity;
 
     private Float odcost;
+    
+    private Product product;
 
-    public Integer getOdid() {
+    public Product getProduct() {
+		return product;
+	}
+
+	public void setProduct(Product product) {
+		this.product = product;
+	}
+
+	public Integer getOdid() {
         return odid;
     }
 

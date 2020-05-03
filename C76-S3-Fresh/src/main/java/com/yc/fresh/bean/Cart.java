@@ -12,18 +12,8 @@ public class Cart {
     private Integer ccount;
 
     private Date ctime;
-    
-    private Product product;
-    
-    public Product getProduct() {
-		return product;
-	}
 
-	public void setProduct(Product product) {
-		this.product = product;
-	}
-
-	public Integer getCid() {
+    public Integer getCid() {
         return cid;
     }
 

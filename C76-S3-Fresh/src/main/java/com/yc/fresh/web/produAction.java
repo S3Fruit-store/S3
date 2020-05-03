@@ -79,8 +79,22 @@ public class produAction {
 	public Result addcart(@SessionAttribute("loginedUser") User user,Cart cart,Integer fid,Integer ccount){
 		System.out.println("count="+ccount);
 		CartExample ce =new CartExample();
-		ce.createCriteria().andUidEqualTo(user.getUid());
 		List<Cart> cart2 =cm.selectByExample(ce);
+		if (cart2.isEmpty()) {
+			cart.setUid(user.getUid());
+			cart.setFid(fid);
+			cart.setCtime(new Date());
+			cart.setCcount(ccount);
+			int code=cm.insert(cart);
+			System.out.println(code);
+			if (code>0) {
+				Result result =new Result(code);
+				return new Result(result.getCode(),"加入购物车成功");
+			}else{
+				Result result =new Result(code);
+				return new Result(result.getCode(),"加入购物车失败");
+			}
+		}
 		int j = 0;
 		for(Cart c :cart2){
 			int i=c.getFid();
@@ -97,8 +111,9 @@ public class produAction {
 			cart.setCtime(new Date());
 			
 			cart.setCcount(j);
-			
+			System.out.println(fid);
 			ce.createCriteria().andFidEqualTo(fid).andUidEqualTo(user.getUid());
+			
 			
 			int code=cm.updateByExampleSelective(cart, ce);
 			System.out.println(code);

@@ -51,6 +51,7 @@ public class loginAction {
 			session.setAttribute("loginedUser", dbuser);
 			if(uri != null) {
 				// 这是拦截登录的情况
+				session.removeAttribute(uri);
 				mav.setViewName("redirect:http://127.0.0.1" + uri);
 			} else {
 				// 这是用户的主动登录
