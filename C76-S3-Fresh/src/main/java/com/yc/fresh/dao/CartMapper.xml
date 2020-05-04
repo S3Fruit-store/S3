@@ -7,8 +7,10 @@
     <result column="fid" jdbcType="INTEGER" property="fid" />
     <result column="ccount" jdbcType="INTEGER" property="ccount" />
     <result column="ctime" jdbcType="TIMESTAMP" property="ctime" />
-    <association property="product" column="fid"  
-    select="com.yc.fresh.dao.ProductMapper.selectByPrimaryKey"></association>
+    <result column="ctemp1" jdbcType="VARCHAR" property="ctemp1" />
+    <result column="ctemp2" jdbcType="VARCHAR" property="ctemp2" />
+    <association property="product" column="fid"
+    	select="com.yc.dao.ProductMapper.selectByPrimaryKey"></association>
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -69,7 +71,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    cid, uid, fid, ccount, ctime
+    cid, uid, fid, ccount, ctime, ctemp1, ctemp2
   </sql>
   <select id="selectByExample" parameterType="com.yc.fresh.bean.CartExample" resultMap="BaseResultMap">
     select
@@ -106,9 +108,11 @@
       SELECT LAST_INSERT_ID()
     </selectKey>
     insert into cart (uid, fid, ccount, 
-      ctime)
+      ctime, ctemp1, ctemp2
+      )
     values (#{uid,jdbcType=INTEGER}, #{fid,jdbcType=INTEGER}, #{ccount,jdbcType=INTEGER}, 
-      #{ctime,jdbcType=TIMESTAMP})
+      #{ctime,jdbcType=TIMESTAMP}, #{ctemp1,jdbcType=VARCHAR}, #{ctemp2,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.yc.fresh.bean.Cart">
     <selectKey keyProperty="cid" order="AFTER" resultType="java.lang.Integer">
@@ -128,6 +132,12 @@
       <if test="ctime != null">
         ctime,
       </if>
+      <if test="ctemp1 != null">
+        ctemp1,
+      </if>
+      <if test="ctemp2 != null">
+        ctemp2,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="uid != null">
@@ -141,6 +151,12 @@
       </if>
       <if test="ctime != null">
         #{ctime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ctemp1 != null">
+        #{ctemp1,jdbcType=VARCHAR},
+      </if>
+      <if test="ctemp2 != null">
+        #{ctemp2,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -168,6 +184,12 @@
       <if test="record.ctime != null">
         ctime = #{record.ctime,jdbcType=TIMESTAMP},
       </if>
+      <if test="record.ctemp1 != null">
+        ctemp1 = #{record.ctemp1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ctemp2 != null">
+        ctemp2 = #{record.ctemp2,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -179,7 +201,9 @@
       uid = #{record.uid,jdbcType=INTEGER},
       fid = #{record.fid,jdbcType=INTEGER},
       ccount = #{record.ccount,jdbcType=INTEGER},
-      ctime = #{record.ctime,jdbcType=TIMESTAMP}
+      ctime = #{record.ctime,jdbcType=TIMESTAMP},
+      ctemp1 = #{record.ctemp1,jdbcType=VARCHAR},
+      ctemp2 = #{record.ctemp2,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -199,6 +223,12 @@
       <if test="ctime != null">
         ctime = #{ctime,jdbcType=TIMESTAMP},
       </if>
+      <if test="ctemp1 != null">
+        ctemp1 = #{ctemp1,jdbcType=VARCHAR},
+      </if>
+      <if test="ctemp2 != null">
+        ctemp2 = #{ctemp2,jdbcType=VARCHAR},
+      </if>
     </set>
     where cid = #{cid,jdbcType=INTEGER}
   </update>
@@ -207,7 +237,9 @@
     set uid = #{uid,jdbcType=INTEGER},
       fid = #{fid,jdbcType=INTEGER},
       ccount = #{ccount,jdbcType=INTEGER},
-      ctime = #{ctime,jdbcType=TIMESTAMP}
+      ctime = #{ctime,jdbcType=TIMESTAMP},
+      ctemp1 = #{ctemp1,jdbcType=VARCHAR},
+      ctemp2 = #{ctemp2,jdbcType=VARCHAR}
     where cid = #{cid,jdbcType=INTEGER}
   </update>
 </mapper>

@@ -163,7 +163,7 @@
     </div>
     <div class="new-bottom clear">
         <div class="nw-b" th:each=" f : ${ftlist} " style="margin:0">
-            <img th:src=" 'images/product/'+${f.ffilename}">
+         <a th:href="'orange?fid='+${f.aid}" > <img th:src=" 'images/product/'+${f.ffilename}"></a>  
         </div>
         
     </div>

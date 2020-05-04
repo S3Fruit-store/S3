@@ -403,6 +403,146 @@ public class OrderdetailExample {
             addCriterion("odcost not between", value1, value2, "odcost");
             return (Criteria) this;
         }
+
+        public Criteria andOtemp1IsNull() {
+            addCriterion("otemp1 is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtemp1IsNotNull() {
+            addCriterion("otemp1 is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtemp1EqualTo(String value) {
+            addCriterion("otemp1 =", value, "otemp1");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtemp1NotEqualTo(String value) {
+            addCriterion("otemp1 <>", value, "otemp1");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtemp1GreaterThan(String value) {
+            addCriterion("otemp1 >", value, "otemp1");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtemp1GreaterThanOrEqualTo(String value) {
+            addCriterion("otemp1 >=", value, "otemp1");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtemp1LessThan(String value) {
+            addCriterion("otemp1 <", value, "otemp1");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtemp1LessThanOrEqualTo(String value) {
+            addCriterion("otemp1 <=", value, "otemp1");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtemp1Like(String value) {
+            addCriterion("otemp1 like", value, "otemp1");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtemp1NotLike(String value) {
+            addCriterion("otemp1 not like", value, "otemp1");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtemp1In(List<String> values) {
+            addCriterion("otemp1 in", values, "otemp1");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtemp1NotIn(List<String> values) {
+            addCriterion("otemp1 not in", values, "otemp1");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtemp1Between(String value1, String value2) {
+            addCriterion("otemp1 between", value1, value2, "otemp1");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtemp1NotBetween(String value1, String value2) {
+            addCriterion("otemp1 not between", value1, value2, "otemp1");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtemp2IsNull() {
+            addCriterion("otemp2 is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtemp2IsNotNull() {
+            addCriterion("otemp2 is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtemp2EqualTo(String value) {
+            addCriterion("otemp2 =", value, "otemp2");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtemp2NotEqualTo(String value) {
+            addCriterion("otemp2 <>", value, "otemp2");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtemp2GreaterThan(String value) {
+            addCriterion("otemp2 >", value, "otemp2");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtemp2GreaterThanOrEqualTo(String value) {
+            addCriterion("otemp2 >=", value, "otemp2");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtemp2LessThan(String value) {
+            addCriterion("otemp2 <", value, "otemp2");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtemp2LessThanOrEqualTo(String value) {
+            addCriterion("otemp2 <=", value, "otemp2");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtemp2Like(String value) {
+            addCriterion("otemp2 like", value, "otemp2");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtemp2NotLike(String value) {
+            addCriterion("otemp2 not like", value, "otemp2");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtemp2In(List<String> values) {
+            addCriterion("otemp2 in", values, "otemp2");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtemp2NotIn(List<String> values) {
+            addCriterion("otemp2 not in", values, "otemp2");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtemp2Between(String value1, String value2) {
+            addCriterion("otemp2 between", value1, value2, "otemp2");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtemp2NotBetween(String value1, String value2) {
+            addCriterion("otemp2 not between", value1, value2, "otemp2");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

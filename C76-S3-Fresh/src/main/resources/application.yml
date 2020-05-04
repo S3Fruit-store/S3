@@ -1,7 +1,9 @@
 server:
   port: 80
 
-myUploadPath: E:\fresh_upload
+myUploadPath: E:/Git Reposity/S3/C76-S3-Fresh/src/main/resources/static/images/user/
+productUploadPath: E:/Git Reposity/S3/C76-S3-Fresh/src/main/resources/static/images/product/
+detailUploadPath: E:/Git Reposity/S3/C76-S3-Fresh/src/main/resources/static/images/productdetail/
 
 spring:
   datasource:
@@ -15,6 +17,8 @@ spring:
         - classpath:/resources/
         - classpath:/static/
         - file:${myUploadPath}
+        - file:${productUploadPath}
+        - file:${detailUploadPath}
         
   # 文件上传配置
   servlet:

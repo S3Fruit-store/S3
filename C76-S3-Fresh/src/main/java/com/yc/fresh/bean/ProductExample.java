@@ -315,62 +315,52 @@ public class ProductExample {
             return (Criteria) this;
         }
 
-        public Criteria andFtypeEqualTo(String value) {
+        public Criteria andFtypeEqualTo(Integer value) {
             addCriterion("ftype =", value, "ftype");
             return (Criteria) this;
         }
 
-        public Criteria andFtypeNotEqualTo(String value) {
+        public Criteria andFtypeNotEqualTo(Integer value) {
             addCriterion("ftype <>", value, "ftype");
             return (Criteria) this;
         }
 
-        public Criteria andFtypeGreaterThan(String value) {
+        public Criteria andFtypeGreaterThan(Integer value) {
             addCriterion("ftype >", value, "ftype");
             return (Criteria) this;
         }
 
-        public Criteria andFtypeGreaterThanOrEqualTo(String value) {
+        public Criteria andFtypeGreaterThanOrEqualTo(Integer value) {
             addCriterion("ftype >=", value, "ftype");
             return (Criteria) this;
         }
 
-        public Criteria andFtypeLessThan(String value) {
+        public Criteria andFtypeLessThan(Integer value) {
             addCriterion("ftype <", value, "ftype");
             return (Criteria) this;
         }
 
-        public Criteria andFtypeLessThanOrEqualTo(String value) {
+        public Criteria andFtypeLessThanOrEqualTo(Integer value) {
             addCriterion("ftype <=", value, "ftype");
             return (Criteria) this;
         }
 
-        public Criteria andFtypeLike(String value) {
-            addCriterion("ftype like", value, "ftype");
-            return (Criteria) this;
-        }
-
-        public Criteria andFtypeNotLike(String value) {
-            addCriterion("ftype not like", value, "ftype");
-            return (Criteria) this;
-        }
-
-        public Criteria andFtypeIn(List<String> values) {
+        public Criteria andFtypeIn(List<Integer> values) {
             addCriterion("ftype in", values, "ftype");
             return (Criteria) this;
         }
 
-        public Criteria andFtypeNotIn(List<String> values) {
+        public Criteria andFtypeNotIn(List<Integer> values) {
             addCriterion("ftype not in", values, "ftype");
             return (Criteria) this;
         }
 
-        public Criteria andFtypeBetween(String value1, String value2) {
+        public Criteria andFtypeBetween(Integer value1, Integer value2) {
             addCriterion("ftype between", value1, value2, "ftype");
             return (Criteria) this;
         }
 
-        public Criteria andFtypeNotBetween(String value1, String value2) {
+        public Criteria andFtypeNotBetween(Integer value1, Integer value2) {
             addCriterion("ftype not between", value1, value2, "ftype");
             return (Criteria) this;
         }

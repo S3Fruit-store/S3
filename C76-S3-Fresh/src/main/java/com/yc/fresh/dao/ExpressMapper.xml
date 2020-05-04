@@ -5,6 +5,9 @@
     <id column="eid" jdbcType="INTEGER" property="eid" />
     <result column="ename" jdbcType="VARCHAR" property="ename" />
     <result column="efilename" jdbcType="VARCHAR" property="efilename" />
+    <result column="edetail" jdbcType="VARCHAR" property="edetail" />
+    <result column="etemp1" jdbcType="VARCHAR" property="etemp1" />
+    <result column="etemp2" jdbcType="VARCHAR" property="etemp2" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -65,7 +68,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    eid, ename, efilename
+    eid, ename, efilename, edetail, etemp1, etemp2
   </sql>
   <select id="selectByExample" parameterType="com.yc.fresh.bean.ExpressExample" resultMap="BaseResultMap">
     select
@@ -101,8 +104,10 @@
     <selectKey keyProperty="eid" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into express (ename, efilename)
-    values (#{ename,jdbcType=VARCHAR}, #{efilename,jdbcType=VARCHAR})
+    insert into express (ename, efilename, edetail, 
+      etemp1, etemp2)
+    values (#{ename,jdbcType=VARCHAR}, #{efilename,jdbcType=VARCHAR}, #{edetail,jdbcType=VARCHAR}, 
+      #{etemp1,jdbcType=VARCHAR}, #{etemp2,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.yc.fresh.bean.Express">
     <selectKey keyProperty="eid" order="AFTER" resultType="java.lang.Integer">
@@ -116,6 +121,15 @@
       <if test="efilename != null">
         efilename,
       </if>
+      <if test="edetail != null">
+        edetail,
+      </if>
+      <if test="etemp1 != null">
+        etemp1,
+      </if>
+      <if test="etemp2 != null">
+        etemp2,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="ename != null">
@@ -123,6 +137,15 @@
       </if>
       <if test="efilename != null">
         #{efilename,jdbcType=VARCHAR},
+      </if>
+      <if test="edetail != null">
+        #{edetail,jdbcType=VARCHAR},
+      </if>
+      <if test="etemp1 != null">
+        #{etemp1,jdbcType=VARCHAR},
+      </if>
+      <if test="etemp2 != null">
+        #{etemp2,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -144,6 +167,15 @@
       <if test="record.efilename != null">
         efilename = #{record.efilename,jdbcType=VARCHAR},
       </if>
+      <if test="record.edetail != null">
+        edetail = #{record.edetail,jdbcType=VARCHAR},
+      </if>
+      <if test="record.etemp1 != null">
+        etemp1 = #{record.etemp1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.etemp2 != null">
+        etemp2 = #{record.etemp2,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -153,7 +185,10 @@
     update express
     set eid = #{record.eid,jdbcType=INTEGER},
       ename = #{record.ename,jdbcType=VARCHAR},
-      efilename = #{record.efilename,jdbcType=VARCHAR}
+      efilename = #{record.efilename,jdbcType=VARCHAR},
+      edetail = #{record.edetail,jdbcType=VARCHAR},
+      etemp1 = #{record.etemp1,jdbcType=VARCHAR},
+      etemp2 = #{record.etemp2,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -167,13 +202,25 @@
       <if test="efilename != null">
         efilename = #{efilename,jdbcType=VARCHAR},
       </if>
+      <if test="edetail != null">
+        edetail = #{edetail,jdbcType=VARCHAR},
+      </if>
+      <if test="etemp1 != null">
+        etemp1 = #{etemp1,jdbcType=VARCHAR},
+      </if>
+      <if test="etemp2 != null">
+        etemp2 = #{etemp2,jdbcType=VARCHAR},
+      </if>
     </set>
     where eid = #{eid,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.yc.fresh.bean.Express">
     update express
     set ename = #{ename,jdbcType=VARCHAR},
-      efilename = #{efilename,jdbcType=VARCHAR}
+      efilename = #{efilename,jdbcType=VARCHAR},
+      edetail = #{edetail,jdbcType=VARCHAR},
+      etemp1 = #{etemp1,jdbcType=VARCHAR},
+      etemp2 = #{etemp2,jdbcType=VARCHAR}
     where eid = #{eid,jdbcType=INTEGER}
   </update>
 </mapper>

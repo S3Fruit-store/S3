@@ -12,6 +12,7 @@
     <result column="otype" jdbcType="INTEGER" property="otype" />
     <result column="otime" jdbcType="TIMESTAMP" property="otime" />
     <result column="onote" jdbcType="VARCHAR" property="onote" />
+    <result column="eid" jdbcType="INTEGER" property="eid" />
     <result column="otemp1" jdbcType="VARCHAR" property="otemp1" />
     <result column="otemp2" jdbcType="VARCHAR" property="otemp2" />
   </resultMap>
@@ -74,7 +75,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    oid, uid, onumber, oname, ophone, oaddress, ocost, otype, otime, onote, otemp1, otemp2
+    oid, uid, onumber, oname, ophone, oaddress, ocost, otype, otime, onote, eid, otemp1, 
+    otemp2
   </sql>
   <select id="selectByExample" parameterType="com.yc.fresh.bean.BillExample" resultMap="BaseResultMap">
     select
@@ -113,11 +115,13 @@
     insert into bill (uid, onumber, oname, 
       ophone, oaddress, ocost, 
       otype, otime, onote, 
-      otemp1, otemp2)
+      eid, otemp1, otemp2
+      )
     values (#{uid,jdbcType=INTEGER}, #{onumber,jdbcType=VARCHAR}, #{oname,jdbcType=VARCHAR}, 
       #{ophone,jdbcType=VARCHAR}, #{oaddress,jdbcType=VARCHAR}, #{ocost,jdbcType=REAL}, 
       #{otype,jdbcType=INTEGER}, #{otime,jdbcType=TIMESTAMP}, #{onote,jdbcType=VARCHAR}, 
-      #{otemp1,jdbcType=VARCHAR}, #{otemp2,jdbcType=VARCHAR})
+      #{eid,jdbcType=INTEGER}, #{otemp1,jdbcType=VARCHAR}, #{otemp2,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.yc.fresh.bean.Bill">
     <selectKey keyProperty="oid" order="AFTER" resultType="java.lang.Integer">
@@ -151,6 +155,9 @@
       </if>
       <if test="onote != null">
         onote,
+      </if>
+      <if test="eid != null">
+        eid,
       </if>
       <if test="otemp1 != null">
         otemp1,
@@ -186,6 +193,9 @@
       </if>
       <if test="onote != null">
         #{onote,jdbcType=VARCHAR},
+      </if>
+      <if test="eid != null">
+        #{eid,jdbcType=INTEGER},
       </if>
       <if test="otemp1 != null">
         #{otemp1,jdbcType=VARCHAR},
@@ -234,6 +244,9 @@
       <if test="record.onote != null">
         onote = #{record.onote,jdbcType=VARCHAR},
       </if>
+      <if test="record.eid != null">
+        eid = #{record.eid,jdbcType=INTEGER},
+      </if>
       <if test="record.otemp1 != null">
         otemp1 = #{record.otemp1,jdbcType=VARCHAR},
       </if>
@@ -257,6 +270,7 @@
       otype = #{record.otype,jdbcType=INTEGER},
       otime = #{record.otime,jdbcType=TIMESTAMP},
       onote = #{record.onote,jdbcType=VARCHAR},
+      eid = #{record.eid,jdbcType=INTEGER},
       otemp1 = #{record.otemp1,jdbcType=VARCHAR},
       otemp2 = #{record.otemp2,jdbcType=VARCHAR}
     <if test="_parameter != null">
@@ -293,6 +307,9 @@
       <if test="onote != null">
         onote = #{onote,jdbcType=VARCHAR},
       </if>
+      <if test="eid != null">
+        eid = #{eid,jdbcType=INTEGER},
+      </if>
       <if test="otemp1 != null">
         otemp1 = #{otemp1,jdbcType=VARCHAR},
       </if>
@@ -313,6 +330,7 @@
       otype = #{otype,jdbcType=INTEGER},
       otime = #{otime,jdbcType=TIMESTAMP},
       onote = #{onote,jdbcType=VARCHAR},
+      eid = #{eid,jdbcType=INTEGER},
       otemp1 = #{otemp1,jdbcType=VARCHAR},
       otemp2 = #{otemp2,jdbcType=VARCHAR}
     where oid = #{oid,jdbcType=INTEGER}

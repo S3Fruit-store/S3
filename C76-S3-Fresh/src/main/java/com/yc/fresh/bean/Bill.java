@@ -23,6 +23,8 @@ public class Bill {
 
     private String onote;
 
+    private Integer eid;
+
     private String otemp1;
 
     private String otemp2;
@@ -105,6 +107,14 @@ public class Bill {
 
     public void setOnote(String onote) {
         this.onote = onote == null ? null : onote.trim();
+    }
+
+    public Integer getEid() {
+        return eid;
+    }
+
+    public void setEid(Integer eid) {
+        this.eid = eid;
     }
 
     public String getOtemp1() {

@@ -404,6 +404,146 @@ public class CartExample {
             addCriterion("ctime not between", value1, value2, "ctime");
             return (Criteria) this;
         }
+
+        public Criteria andCtemp1IsNull() {
+            addCriterion("ctemp1 is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCtemp1IsNotNull() {
+            addCriterion("ctemp1 is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCtemp1EqualTo(String value) {
+            addCriterion("ctemp1 =", value, "ctemp1");
+            return (Criteria) this;
+        }
+
+        public Criteria andCtemp1NotEqualTo(String value) {
+            addCriterion("ctemp1 <>", value, "ctemp1");
+            return (Criteria) this;
+        }
+
+        public Criteria andCtemp1GreaterThan(String value) {
+            addCriterion("ctemp1 >", value, "ctemp1");
+            return (Criteria) this;
+        }
+
+        public Criteria andCtemp1GreaterThanOrEqualTo(String value) {
+            addCriterion("ctemp1 >=", value, "ctemp1");
+            return (Criteria) this;
+        }
+
+        public Criteria andCtemp1LessThan(String value) {
+            addCriterion("ctemp1 <", value, "ctemp1");
+            return (Criteria) this;
+        }
+
+        public Criteria andCtemp1LessThanOrEqualTo(String value) {
+            addCriterion("ctemp1 <=", value, "ctemp1");
+            return (Criteria) this;
+        }
+
+        public Criteria andCtemp1Like(String value) {
+            addCriterion("ctemp1 like", value, "ctemp1");
+            return (Criteria) this;
+        }
+
+        public Criteria andCtemp1NotLike(String value) {
+            addCriterion("ctemp1 not like", value, "ctemp1");
+            return (Criteria) this;
+        }
+
+        public Criteria andCtemp1In(List<String> values) {
+            addCriterion("ctemp1 in", values, "ctemp1");
+            return (Criteria) this;
+        }
+
+        public Criteria andCtemp1NotIn(List<String> values) {
+            addCriterion("ctemp1 not in", values, "ctemp1");
+            return (Criteria) this;
+        }
+
+        public Criteria andCtemp1Between(String value1, String value2) {
+            addCriterion("ctemp1 between", value1, value2, "ctemp1");
+            return (Criteria) this;
+        }
+
+        public Criteria andCtemp1NotBetween(String value1, String value2) {
+            addCriterion("ctemp1 not between", value1, value2, "ctemp1");
+            return (Criteria) this;
+        }
+
+        public Criteria andCtemp2IsNull() {
+            addCriterion("ctemp2 is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCtemp2IsNotNull() {
+            addCriterion("ctemp2 is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCtemp2EqualTo(String value) {
+            addCriterion("ctemp2 =", value, "ctemp2");
+            return (Criteria) this;
+        }
+
+        public Criteria andCtemp2NotEqualTo(String value) {
+            addCriterion("ctemp2 <>", value, "ctemp2");
+            return (Criteria) this;
+        }
+
+        public Criteria andCtemp2GreaterThan(String value) {
+            addCriterion("ctemp2 >", value, "ctemp2");
+            return (Criteria) this;
+        }
+
+        public Criteria andCtemp2GreaterThanOrEqualTo(String value) {
+            addCriterion("ctemp2 >=", value, "ctemp2");
+            return (Criteria) this;
+        }
+
+        public Criteria andCtemp2LessThan(String value) {
+            addCriterion("ctemp2 <", value, "ctemp2");
+            return (Criteria) this;
+        }
+
+        public Criteria andCtemp2LessThanOrEqualTo(String value) {
+            addCriterion("ctemp2 <=", value, "ctemp2");
+            return (Criteria) this;
+        }
+
+        public Criteria andCtemp2Like(String value) {
+            addCriterion("ctemp2 like", value, "ctemp2");
+            return (Criteria) this;
+        }
+
+        public Criteria andCtemp2NotLike(String value) {
+            addCriterion("ctemp2 not like", value, "ctemp2");
+            return (Criteria) this;
+        }
+
+        public Criteria andCtemp2In(List<String> values) {
+            addCriterion("ctemp2 in", values, "ctemp2");
+            return (Criteria) this;
+        }
+
+        public Criteria andCtemp2NotIn(List<String> values) {
+            addCriterion("ctemp2 not in", values, "ctemp2");
+            return (Criteria) this;
+        }
+
+        public Criteria andCtemp2Between(String value1, String value2) {
+            addCriterion("ctemp2 between", value1, value2, "ctemp2");
+            return (Criteria) this;
+        }
+
+        public Criteria andCtemp2NotBetween(String value1, String value2) {
+            addCriterion("ctemp2 not between", value1, value2, "ctemp2");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

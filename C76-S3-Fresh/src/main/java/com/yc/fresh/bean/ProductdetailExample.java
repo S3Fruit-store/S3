@@ -293,6 +293,146 @@ public class ProductdetailExample {
             addCriterion("pdetail not between", value1, value2, "pdetail");
             return (Criteria) this;
         }
+
+        public Criteria andPtemp1IsNull() {
+            addCriterion("ptemp1 is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPtemp1IsNotNull() {
+            addCriterion("ptemp1 is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPtemp1EqualTo(String value) {
+            addCriterion("ptemp1 =", value, "ptemp1");
+            return (Criteria) this;
+        }
+
+        public Criteria andPtemp1NotEqualTo(String value) {
+            addCriterion("ptemp1 <>", value, "ptemp1");
+            return (Criteria) this;
+        }
+
+        public Criteria andPtemp1GreaterThan(String value) {
+            addCriterion("ptemp1 >", value, "ptemp1");
+            return (Criteria) this;
+        }
+
+        public Criteria andPtemp1GreaterThanOrEqualTo(String value) {
+            addCriterion("ptemp1 >=", value, "ptemp1");
+            return (Criteria) this;
+        }
+
+        public Criteria andPtemp1LessThan(String value) {
+            addCriterion("ptemp1 <", value, "ptemp1");
+            return (Criteria) this;
+        }
+
+        public Criteria andPtemp1LessThanOrEqualTo(String value) {
+            addCriterion("ptemp1 <=", value, "ptemp1");
+            return (Criteria) this;
+        }
+
+        public Criteria andPtemp1Like(String value) {
+            addCriterion("ptemp1 like", value, "ptemp1");
+            return (Criteria) this;
+        }
+
+        public Criteria andPtemp1NotLike(String value) {
+            addCriterion("ptemp1 not like", value, "ptemp1");
+            return (Criteria) this;
+        }
+
+        public Criteria andPtemp1In(List<String> values) {
+            addCriterion("ptemp1 in", values, "ptemp1");
+            return (Criteria) this;
+        }
+
+        public Criteria andPtemp1NotIn(List<String> values) {
+            addCriterion("ptemp1 not in", values, "ptemp1");
+            return (Criteria) this;
+        }
+
+        public Criteria andPtemp1Between(String value1, String value2) {
+            addCriterion("ptemp1 between", value1, value2, "ptemp1");
+            return (Criteria) this;
+        }
+
+        public Criteria andPtemp1NotBetween(String value1, String value2) {
+            addCriterion("ptemp1 not between", value1, value2, "ptemp1");
+            return (Criteria) this;
+        }
+
+        public Criteria andPtemp2IsNull() {
+            addCriterion("ptemp2 is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPtemp2IsNotNull() {
+            addCriterion("ptemp2 is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPtemp2EqualTo(String value) {
+            addCriterion("ptemp2 =", value, "ptemp2");
+            return (Criteria) this;
+        }
+
+        public Criteria andPtemp2NotEqualTo(String value) {
+            addCriterion("ptemp2 <>", value, "ptemp2");
+            return (Criteria) this;
+        }
+
+        public Criteria andPtemp2GreaterThan(String value) {
+            addCriterion("ptemp2 >", value, "ptemp2");
+            return (Criteria) this;
+        }
+
+        public Criteria andPtemp2GreaterThanOrEqualTo(String value) {
+            addCriterion("ptemp2 >=", value, "ptemp2");
+            return (Criteria) this;
+        }
+
+        public Criteria andPtemp2LessThan(String value) {
+            addCriterion("ptemp2 <", value, "ptemp2");
+            return (Criteria) this;
+        }
+
+        public Criteria andPtemp2LessThanOrEqualTo(String value) {
+            addCriterion("ptemp2 <=", value, "ptemp2");
+            return (Criteria) this;
+        }
+
+        public Criteria andPtemp2Like(String value) {
+            addCriterion("ptemp2 like", value, "ptemp2");
+            return (Criteria) this;
+        }
+
+        public Criteria andPtemp2NotLike(String value) {
+            addCriterion("ptemp2 not like", value, "ptemp2");
+            return (Criteria) this;
+        }
+
+        public Criteria andPtemp2In(List<String> values) {
+            addCriterion("ptemp2 in", values, "ptemp2");
+            return (Criteria) this;
+        }
+
+        public Criteria andPtemp2NotIn(List<String> values) {
+            addCriterion("ptemp2 not in", values, "ptemp2");
+            return (Criteria) this;
+        }
+
+        public Criteria andPtemp2Between(String value1, String value2) {
+            addCriterion("ptemp2 between", value1, value2, "ptemp2");
+            return (Criteria) this;
+        }
+
+        public Criteria andPtemp2NotBetween(String value1, String value2) {
+            addCriterion("ptemp2 not between", value1, value2, "ptemp2");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

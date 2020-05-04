@@ -7,6 +7,8 @@
     <result column="fid" jdbcType="INTEGER" property="fid" />
     <result column="pquintity" jdbcType="INTEGER" property="pquintity" />
     <result column="odcost" jdbcType="REAL" property="odcost" />
+    <result column="otemp1" jdbcType="VARCHAR" property="otemp1" />
+    <result column="otemp2" jdbcType="VARCHAR" property="otemp2" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -67,7 +69,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    odid, oid, fid, pquintity, odcost
+    odid, oid, fid, pquintity, odcost, otemp1, otemp2
   </sql>
   <select id="selectByExample" parameterType="com.yc.fresh.bean.OrderdetailExample" resultMap="BaseResultMap">
     select
@@ -104,9 +106,11 @@
       SELECT LAST_INSERT_ID()
     </selectKey>
     insert into orderdetail (oid, fid, pquintity, 
-      odcost)
+      odcost, otemp1, otemp2
+      )
     values (#{oid,jdbcType=INTEGER}, #{fid,jdbcType=INTEGER}, #{pquintity,jdbcType=INTEGER}, 
-      #{odcost,jdbcType=REAL})
+      #{odcost,jdbcType=REAL}, #{otemp1,jdbcType=VARCHAR}, #{otemp2,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.yc.fresh.bean.Orderdetail">
     <selectKey keyProperty="odid" order="AFTER" resultType="java.lang.Integer">
@@ -126,6 +130,12 @@
       <if test="odcost != null">
         odcost,
       </if>
+      <if test="otemp1 != null">
+        otemp1,
+      </if>
+      <if test="otemp2 != null">
+        otemp2,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="oid != null">
@@ -139,6 +149,12 @@
       </if>
       <if test="odcost != null">
         #{odcost,jdbcType=REAL},
+      </if>
+      <if test="otemp1 != null">
+        #{otemp1,jdbcType=VARCHAR},
+      </if>
+      <if test="otemp2 != null">
+        #{otemp2,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -166,6 +182,12 @@
       <if test="record.odcost != null">
         odcost = #{record.odcost,jdbcType=REAL},
       </if>
+      <if test="record.otemp1 != null">
+        otemp1 = #{record.otemp1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.otemp2 != null">
+        otemp2 = #{record.otemp2,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -177,7 +199,9 @@
       oid = #{record.oid,jdbcType=INTEGER},
       fid = #{record.fid,jdbcType=INTEGER},
       pquintity = #{record.pquintity,jdbcType=INTEGER},
-      odcost = #{record.odcost,jdbcType=REAL}
+      odcost = #{record.odcost,jdbcType=REAL},
+      otemp1 = #{record.otemp1,jdbcType=VARCHAR},
+      otemp2 = #{record.otemp2,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -197,6 +221,12 @@
       <if test="odcost != null">
         odcost = #{odcost,jdbcType=REAL},
       </if>
+      <if test="otemp1 != null">
+        otemp1 = #{otemp1,jdbcType=VARCHAR},
+      </if>
+      <if test="otemp2 != null">
+        otemp2 = #{otemp2,jdbcType=VARCHAR},
+      </if>
     </set>
     where odid = #{odid,jdbcType=INTEGER}
   </update>
@@ -205,7 +235,9 @@
     set oid = #{oid,jdbcType=INTEGER},
       fid = #{fid,jdbcType=INTEGER},
       pquintity = #{pquintity,jdbcType=INTEGER},
-      odcost = #{odcost,jdbcType=REAL}
+      odcost = #{odcost,jdbcType=REAL},
+      otemp1 = #{otemp1,jdbcType=VARCHAR},
+      otemp2 = #{otemp2,jdbcType=VARCHAR}
     where odid = #{odid,jdbcType=INTEGER}
   </update>
 </mapper>

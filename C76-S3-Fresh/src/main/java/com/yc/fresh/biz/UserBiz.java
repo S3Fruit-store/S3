@@ -36,7 +36,8 @@ public class UserBiz {
 
 	public void reg(User user) throws BizException {
 		UserExample ue = new UserExample();
-		ue.createCriteria().andUaccountEqualTo(user.getUaccount());
+		ue.createCriteria().andUaccountEqualTo(user.getUaccount())
+			.andUstatusEqualTo(1).andUtypeEqualTo(1);
 
 		if (um.countByExample(ue) > 0) {
 			throw new BizException(102, "name", "该账户名已被注册");

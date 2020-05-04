@@ -303,6 +303,216 @@ public class ExpressExample {
             addCriterion("efilename not between", value1, value2, "efilename");
             return (Criteria) this;
         }
+
+        public Criteria andEdetailIsNull() {
+            addCriterion("edetail is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andEdetailIsNotNull() {
+            addCriterion("edetail is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andEdetailEqualTo(String value) {
+            addCriterion("edetail =", value, "edetail");
+            return (Criteria) this;
+        }
+
+        public Criteria andEdetailNotEqualTo(String value) {
+            addCriterion("edetail <>", value, "edetail");
+            return (Criteria) this;
+        }
+
+        public Criteria andEdetailGreaterThan(String value) {
+            addCriterion("edetail >", value, "edetail");
+            return (Criteria) this;
+        }
+
+        public Criteria andEdetailGreaterThanOrEqualTo(String value) {
+            addCriterion("edetail >=", value, "edetail");
+            return (Criteria) this;
+        }
+
+        public Criteria andEdetailLessThan(String value) {
+            addCriterion("edetail <", value, "edetail");
+            return (Criteria) this;
+        }
+
+        public Criteria andEdetailLessThanOrEqualTo(String value) {
+            addCriterion("edetail <=", value, "edetail");
+            return (Criteria) this;
+        }
+
+        public Criteria andEdetailLike(String value) {
+            addCriterion("edetail like", value, "edetail");
+            return (Criteria) this;
+        }
+
+        public Criteria andEdetailNotLike(String value) {
+            addCriterion("edetail not like", value, "edetail");
+            return (Criteria) this;
+        }
+
+        public Criteria andEdetailIn(List<String> values) {
+            addCriterion("edetail in", values, "edetail");
+            return (Criteria) this;
+        }
+
+        public Criteria andEdetailNotIn(List<String> values) {
+            addCriterion("edetail not in", values, "edetail");
+            return (Criteria) this;
+        }
+
+        public Criteria andEdetailBetween(String value1, String value2) {
+            addCriterion("edetail between", value1, value2, "edetail");
+            return (Criteria) this;
+        }
+
+        public Criteria andEdetailNotBetween(String value1, String value2) {
+            addCriterion("edetail not between", value1, value2, "edetail");
+            return (Criteria) this;
+        }
+
+        public Criteria andEtemp1IsNull() {
+            addCriterion("etemp1 is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andEtemp1IsNotNull() {
+            addCriterion("etemp1 is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andEtemp1EqualTo(String value) {
+            addCriterion("etemp1 =", value, "etemp1");
+            return (Criteria) this;
+        }
+
+        public Criteria andEtemp1NotEqualTo(String value) {
+            addCriterion("etemp1 <>", value, "etemp1");
+            return (Criteria) this;
+        }
+
+        public Criteria andEtemp1GreaterThan(String value) {
+            addCriterion("etemp1 >", value, "etemp1");
+            return (Criteria) this;
+        }
+
+        public Criteria andEtemp1GreaterThanOrEqualTo(String value) {
+            addCriterion("etemp1 >=", value, "etemp1");
+            return (Criteria) this;
+        }
+
+        public Criteria andEtemp1LessThan(String value) {
+            addCriterion("etemp1 <", value, "etemp1");
+            return (Criteria) this;
+        }
+
+        public Criteria andEtemp1LessThanOrEqualTo(String value) {
+            addCriterion("etemp1 <=", value, "etemp1");
+            return (Criteria) this;
+        }
+
+        public Criteria andEtemp1Like(String value) {
+            addCriterion("etemp1 like", value, "etemp1");
+            return (Criteria) this;
+        }
+
+        public Criteria andEtemp1NotLike(String value) {
+            addCriterion("etemp1 not like", value, "etemp1");
+            return (Criteria) this;
+        }
+
+        public Criteria andEtemp1In(List<String> values) {
+            addCriterion("etemp1 in", values, "etemp1");
+            return (Criteria) this;
+        }
+
+        public Criteria andEtemp1NotIn(List<String> values) {
+            addCriterion("etemp1 not in", values, "etemp1");
+            return (Criteria) this;
+        }
+
+        public Criteria andEtemp1Between(String value1, String value2) {
+            addCriterion("etemp1 between", value1, value2, "etemp1");
+            return (Criteria) this;
+        }
+
+        public Criteria andEtemp1NotBetween(String value1, String value2) {
+            addCriterion("etemp1 not between", value1, value2, "etemp1");
+            return (Criteria) this;
+        }
+
+        public Criteria andEtemp2IsNull() {
+            addCriterion("etemp2 is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andEtemp2IsNotNull() {
+            addCriterion("etemp2 is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andEtemp2EqualTo(String value) {
+            addCriterion("etemp2 =", value, "etemp2");
+            return (Criteria) this;
+        }
+
+        public Criteria andEtemp2NotEqualTo(String value) {
+            addCriterion("etemp2 <>", value, "etemp2");
+            return (Criteria) this;
+        }
+
+        public Criteria andEtemp2GreaterThan(String value) {
+            addCriterion("etemp2 >", value, "etemp2");
+            return (Criteria) this;
+        }
+
+        public Criteria andEtemp2GreaterThanOrEqualTo(String value) {
+            addCriterion("etemp2 >=", value, "etemp2");
+            return (Criteria) this;
+        }
+
+        public Criteria andEtemp2LessThan(String value) {
+            addCriterion("etemp2 <", value, "etemp2");
+            return (Criteria) this;
+        }
+
+        public Criteria andEtemp2LessThanOrEqualTo(String value) {
+            addCriterion("etemp2 <=", value, "etemp2");
+            return (Criteria) this;
+        }
+
+        public Criteria andEtemp2Like(String value) {
+            addCriterion("etemp2 like", value, "etemp2");
+            return (Criteria) this;
+        }
+
+        public Criteria andEtemp2NotLike(String value) {
+            addCriterion("etemp2 not like", value, "etemp2");
+            return (Criteria) this;
+        }
+
+        public Criteria andEtemp2In(List<String> values) {
+            addCriterion("etemp2 in", values, "etemp2");
+            return (Criteria) this;
+        }
+
+        public Criteria andEtemp2NotIn(List<String> values) {
+            addCriterion("etemp2 not in", values, "etemp2");
+            return (Criteria) this;
+        }
+
+        public Criteria andEtemp2Between(String value1, String value2) {
+            addCriterion("etemp2 between", value1, value2, "etemp2");
+            return (Criteria) this;
+        }
+
+        public Criteria andEtemp2NotBetween(String value1, String value2) {
+            addCriterion("etemp2 not between", value1, value2, "etemp2");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

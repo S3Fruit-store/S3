@@ -9,7 +9,7 @@ public class Product {
 
     private String fparenttype;
 
-    private String ftype;
+    private Integer ftype;
 
     private String faddress;
 
@@ -26,7 +26,14 @@ public class Product {
     private String ftemp1;
 
     private String ftemp2;
-
+    
+	/*
+	 * private Producttype ptype;
+	 * 
+	 * public Producttype getPtype() { return ptype; }
+	 * 
+	 * public void setPtype(Producttype ptype) { this.ptype = ptype; }
+	 */
 	public Integer getFid() {
         return fid;
     }
@@ -51,12 +58,12 @@ public class Product {
         this.fparenttype = fparenttype == null ? null : fparenttype.trim();
     }
 
-    public String getFtype() {
+    public Integer getFtype() {
         return ftype;
     }
 
-    public void setFtype(String ftype) {
-        this.ftype = ftype == null ? null : ftype.trim();
+    public void setFtype(Integer ftype) {
+        this.ftype = ftype;
     }
 
     public String getFaddress() {

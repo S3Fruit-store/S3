@@ -12,6 +12,10 @@ public class Cart {
     private Integer ccount;
 
     private Date ctime;
+
+    private String ctemp1;
+
+    private String ctemp2;
     
     private Product product;
     
@@ -61,5 +65,21 @@ public class Cart {
 
     public void setCtime(Date ctime) {
         this.ctime = ctime;
+    }
+
+    public String getCtemp1() {
+        return ctemp1;
+    }
+
+    public void setCtemp1(String ctemp1) {
+        this.ctemp1 = ctemp1 == null ? null : ctemp1.trim();
+    }
+
+    public String getCtemp2() {
+        return ctemp2;
+    }
+
+    public void setCtemp2(String ctemp2) {
+        this.ctemp2 = ctemp2 == null ? null : ctemp2.trim();
     }
 }

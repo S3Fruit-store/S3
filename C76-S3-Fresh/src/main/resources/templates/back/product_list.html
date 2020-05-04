@@ -48,13 +48,13 @@
  <div class="rt_content">
       <div class="page_title">
        <h2 class="fl">商品列表</h2>
-       <a href="product_detail.html" class="fr top_rt_btn add_icon">添加商品</a>
+       <a th:href="product_add" class="fr top_rt_btn add_icon">添加商品</a>
       </div>
       <section class="mtb">
-       <select class="select">
+       <!-- <select class="select">
         <option>下拉菜单</option>
         <option>菜单1</option>
-       </select>
+       </select> -->
        <input type="text" name="name" class="textbox textbox_225" placeholder="输入产品关键词.."/>
        <input type="button" value="查询" class="group_btn"/>
       </section>
@@ -88,14 +88,23 @@
         </td>
        </tr>
       </table>
-      <aside class="paging">
-       <a>第一页</a>
-       <a>1</a>
-       <a>2</a>
-       <a>3</a>
-       <a>…</a>
-       <a>1004</a>
-       <a>最后一页</a>
+       <!-- <div class="paging">
+			<a th:href="'product_list?page='+${glist.prePage}"  >上一页</a>
+				<ul>
+					 <li >
+					   <a th:href="'product_list?page='+${plist.pageNum}" class="active">
+					   <span th:text="${glist.pageNum}" >1</span>
+					   </a>
+					   </li>
+				</ul>
+			 <a th:href="'product_list?page='+${glist.nextPage}" >下一页</a>
+		</div> -->
+      <aside class="paging" style="position : center">
+	       <a th:if="${glist.prePage}>0" th:text="上一页" th:href="'product_list?page='+${glist.prePage}"  >上一页</a>
+	       <a th:href="'product_list?page='+${plist.pageNum}" class="active">
+				<span th:text="${glist.pageNum}" >1</span>
+		   </a> 
+        <a th:if="${glist.nextPage}>0" th:text="下一页" th:href="'product_list?page='+${glist.nextPage}" >下一页</a>
       </aside>
  </div>
 </section>

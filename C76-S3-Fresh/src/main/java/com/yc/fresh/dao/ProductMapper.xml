@@ -5,7 +5,7 @@
     <id column="fid" jdbcType="INTEGER" property="fid" />
     <result column="fname" jdbcType="VARCHAR" property="fname" />
     <result column="fparenttype" jdbcType="VARCHAR" property="fparenttype" />
-    <result column="ftype" jdbcType="VARCHAR" property="ftype" />
+    <result column="ftype" jdbcType="INTEGER" property="ftype" />
     <result column="faddress" jdbcType="VARCHAR" property="faddress" />
     <result column="ftime" jdbcType="TIMESTAMP" property="ftime" />
     <result column="ffreshtime" jdbcType="VARCHAR" property="ffreshtime" />
@@ -14,7 +14,8 @@
     <result column="fnumber" jdbcType="INTEGER" property="fnumber" />
     <result column="ftemp1" jdbcType="VARCHAR" property="ftemp1" />
     <result column="ftemp2" jdbcType="VARCHAR" property="ftemp2" />
-    
+    <!-- <association property="ptype" column="ftype"
+    select="com.yc.dao.ProducttypeMapper.selectByPrimaryKey"></association> -->
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -116,7 +117,7 @@
       faddress, ftime, ffreshtime, 
       fprice, ffilename, fnumber, 
       ftemp1, ftemp2)
-    values (#{fname,jdbcType=VARCHAR}, #{fparenttype,jdbcType=VARCHAR}, #{ftype,jdbcType=VARCHAR}, 
+    values (#{fname,jdbcType=VARCHAR}, #{fparenttype,jdbcType=VARCHAR}, #{ftype,jdbcType=INTEGER}, 
       #{faddress,jdbcType=VARCHAR}, #{ftime,jdbcType=TIMESTAMP}, #{ffreshtime,jdbcType=VARCHAR}, 
       #{fprice,jdbcType=REAL}, #{ffilename,jdbcType=VARCHAR}, #{fnumber,jdbcType=INTEGER}, 
       #{ftemp1,jdbcType=VARCHAR}, #{ftemp2,jdbcType=VARCHAR})
@@ -169,7 +170,7 @@
         #{fparenttype,jdbcType=VARCHAR},
       </if>
       <if test="ftype != null">
-        #{ftype,jdbcType=VARCHAR},
+        #{ftype,jdbcType=INTEGER},
       </if>
       <if test="faddress != null">
         #{faddress,jdbcType=VARCHAR},
@@ -216,7 +217,7 @@
         fparenttype = #{record.fparenttype,jdbcType=VARCHAR},
       </if>
       <if test="record.ftype != null">
-        ftype = #{record.ftype,jdbcType=VARCHAR},
+        ftype = #{record.ftype,jdbcType=INTEGER},
       </if>
       <if test="record.faddress != null">
         faddress = #{record.faddress,jdbcType=VARCHAR},
@@ -252,7 +253,7 @@
     set fid = #{record.fid,jdbcType=INTEGER},
       fname = #{record.fname,jdbcType=VARCHAR},
       fparenttype = #{record.fparenttype,jdbcType=VARCHAR},
-      ftype = #{record.ftype,jdbcType=VARCHAR},
+      ftype = #{record.ftype,jdbcType=INTEGER},
       faddress = #{record.faddress,jdbcType=VARCHAR},
       ftime = #{record.ftime,jdbcType=TIMESTAMP},
       ffreshtime = #{record.ffreshtime,jdbcType=VARCHAR},
@@ -275,7 +276,7 @@
         fparenttype = #{fparenttype,jdbcType=VARCHAR},
       </if>
       <if test="ftype != null">
-        ftype = #{ftype,jdbcType=VARCHAR},
+        ftype = #{ftype,jdbcType=INTEGER},
       </if>
       <if test="faddress != null">
         faddress = #{faddress,jdbcType=VARCHAR},
@@ -308,7 +309,7 @@
     update product
     set fname = #{fname,jdbcType=VARCHAR},
       fparenttype = #{fparenttype,jdbcType=VARCHAR},
-      ftype = #{ftype,jdbcType=VARCHAR},
+      ftype = #{ftype,jdbcType=INTEGER},
       faddress = #{faddress,jdbcType=VARCHAR},
       ftime = #{ftime,jdbcType=TIMESTAMP},
       ffreshtime = #{ffreshtime,jdbcType=VARCHAR},

@@ -44,18 +44,14 @@ public class loginAction {
 	@PostMapping("login")
 	@ResponseBody
 	public ModelAndView login(@Valid User user,HttpSession session,
-			ModelAndView mav,@SessionAttribute(name="uri",required=false)String uri) {
+			ModelAndView mav) {
 		
 		try {
 			User dbuser = ubiz.login(user);
 			session.setAttribute("loginedUser", dbuser);
-			if(uri != null) {
-				// 这是拦截登录的情况
-				mav.setViewName("redirect:http://127.0.0.1" + uri);
-			} else {
-				// 这是用户的主动登录
-				mav.setViewName("index");
-			}
+			mav.setViewName("index");
+			
+			
 		} catch (BizException e) {
 			e.printStackTrace();
 			mav.addObject("msg", e.getMessage());
@@ -84,6 +80,8 @@ public class loginAction {
 		try {
 			String ufilename = "/" + file.getOriginalFilename();
 	 		user.setUfilename(ufilename);
+	 		user.setUtype(1);
+	 		user.setUstatus(1);
 			ubiz.reg(user);
 			return new Result(1, "用户注册成功");
 		} catch (BizException e) {
