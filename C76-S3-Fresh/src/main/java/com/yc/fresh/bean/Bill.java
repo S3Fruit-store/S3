@@ -27,9 +27,19 @@ public class Bill {
 
     private String otemp1;
 
-    private String otemp2;
+    private String eid;
+    
+    private Express express;
 
-    public Integer getOid() {
+    public Express getExpress() {
+		return express;
+	}
+
+	public void setExpress(Express express) {
+		this.express = express;
+	}
+
+	public Integer getOid() {
         return oid;
     }
 
@@ -125,11 +135,11 @@ public class Bill {
         this.otemp1 = otemp1 == null ? null : otemp1.trim();
     }
 
-    public String getOtemp2() {
-        return otemp2;
+    public String getEid() {
+        return eid;
     }
 
-    public void setOtemp2(String otemp2) {
-        this.otemp2 = otemp2 == null ? null : otemp2.trim();
+    public void setEid(String eid) {
+        this.eid = eid == null ? null : eid.trim();
     }
 }

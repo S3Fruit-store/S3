@@ -885,73 +885,73 @@ public class BillExample {
             return (Criteria) this;
         }
 
-        public Criteria andOtemp2IsNull() {
-            addCriterion("otemp2 is null");
+        public Criteria andEidIsNull() {
+            addCriterion("eid is null");
             return (Criteria) this;
         }
 
-        public Criteria andOtemp2IsNotNull() {
-            addCriterion("otemp2 is not null");
+        public Criteria andEidIsNotNull() {
+            addCriterion("eid is not null");
             return (Criteria) this;
         }
 
-        public Criteria andOtemp2EqualTo(String value) {
-            addCriterion("otemp2 =", value, "otemp2");
+        public Criteria andEidEqualTo(String value) {
+            addCriterion("eid =", value, "eid");
             return (Criteria) this;
         }
 
-        public Criteria andOtemp2NotEqualTo(String value) {
-            addCriterion("otemp2 <>", value, "otemp2");
+        public Criteria andEidNotEqualTo(String value) {
+            addCriterion("eid <>", value, "eid");
             return (Criteria) this;
         }
 
-        public Criteria andOtemp2GreaterThan(String value) {
-            addCriterion("otemp2 >", value, "otemp2");
+        public Criteria andEidGreaterThan(String value) {
+            addCriterion("eid >", value, "eid");
             return (Criteria) this;
         }
 
-        public Criteria andOtemp2GreaterThanOrEqualTo(String value) {
-            addCriterion("otemp2 >=", value, "otemp2");
+        public Criteria andEidGreaterThanOrEqualTo(String value) {
+            addCriterion("eid >=", value, "eid");
             return (Criteria) this;
         }
 
-        public Criteria andOtemp2LessThan(String value) {
-            addCriterion("otemp2 <", value, "otemp2");
+        public Criteria andEidLessThan(String value) {
+            addCriterion("eid <", value, "eid");
             return (Criteria) this;
         }
 
-        public Criteria andOtemp2LessThanOrEqualTo(String value) {
-            addCriterion("otemp2 <=", value, "otemp2");
+        public Criteria andEidLessThanOrEqualTo(String value) {
+            addCriterion("eid <=", value, "eid");
             return (Criteria) this;
         }
 
-        public Criteria andOtemp2Like(String value) {
-            addCriterion("otemp2 like", value, "otemp2");
+        public Criteria andEidLike(String value) {
+            addCriterion("eid like", value, "eid");
             return (Criteria) this;
         }
 
-        public Criteria andOtemp2NotLike(String value) {
-            addCriterion("otemp2 not like", value, "otemp2");
+        public Criteria andEidNotLike(String value) {
+            addCriterion("eid not like", value, "eid");
             return (Criteria) this;
         }
 
-        public Criteria andOtemp2In(List<String> values) {
-            addCriterion("otemp2 in", values, "otemp2");
+        public Criteria andEidIn(List<String> values) {
+            addCriterion("eid in", values, "eid");
             return (Criteria) this;
         }
 
-        public Criteria andOtemp2NotIn(List<String> values) {
-            addCriterion("otemp2 not in", values, "otemp2");
+        public Criteria andEidNotIn(List<String> values) {
+            addCriterion("eid not in", values, "eid");
             return (Criteria) this;
         }
 
-        public Criteria andOtemp2Between(String value1, String value2) {
-            addCriterion("otemp2 between", value1, value2, "otemp2");
+        public Criteria andEidBetween(String value1, String value2) {
+            addCriterion("eid between", value1, value2, "eid");
             return (Criteria) this;
         }
 
-        public Criteria andOtemp2NotBetween(String value1, String value2) {
-            addCriterion("otemp2 not between", value1, value2, "otemp2");
+        public Criteria andEidNotBetween(String value1, String value2) {
+            addCriterion("eid not between", value1, value2, "eid");
             return (Criteria) this;
         }
     }
