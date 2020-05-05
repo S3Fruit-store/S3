@@ -73,7 +73,7 @@ public class orderAction {
 		Bill bill2 =bm.selectByPrimaryKey(oid);
 		
 	
-		if(bill2.getOtype()==2){
+		if(bill2.getOtype()==1){
 			BillExample be =new BillExample();
 			be.createCriteria().andOidEqualTo(oid);
 			code=bm.updateByExampleSelective(bill, be);

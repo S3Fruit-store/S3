@@ -53,6 +53,7 @@ public class UserListAction {
 	@GetMapping("user_list")
 	public String user_list(Model m) {
 		UserExample ue = new UserExample();
+		ue.createCriteria().andUtypeEqualTo(1);
 		m.addAttribute("ulist", um.selectByExample(ue));
 		return "back/user_list";
 				

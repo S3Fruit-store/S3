@@ -72,6 +72,13 @@ public class UserAction {
 		return "redirect:cart";
 	}
 	
+	@GetMapping("cart_two")
+	public String cart_two() {
+		
+		return "cart_two";
+	}
+	
+	
 	//用户订单
 	@GetMapping("member_order")
 	public String memberOrder(Model m,
@@ -97,7 +104,7 @@ public class UserAction {
 		
 		return "member_order_detail";
 	}
-	//取消订单
+	//用户取消订单
 	@GetMapping("order_cancel")
 	public String order_cancel(Integer oid) {
 		Bill bill = new Bill();
@@ -108,7 +115,7 @@ public class UserAction {
 		return "redirect:member_order";
 		
 	}
-	//删除订单
+	//用户删除订单
 	@GetMapping("order_delete")
 	public String order_delete(Integer oid) {
 		bm.deleteByPrimaryKey(oid);

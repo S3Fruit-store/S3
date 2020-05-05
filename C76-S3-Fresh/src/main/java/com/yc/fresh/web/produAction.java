@@ -51,7 +51,7 @@ public class produAction {
 	public String produ(@RequestParam(defaultValue = "1") Integer page,@RequestParam(defaultValue = "国产水果") String fparenttype, Model m) {
 		Page<Product> pg = PageHelper.startPage(page,8,true);
 		ProductExample pe = new ProductExample();
-		pe.createCriteria().andFparenttypeEqualTo(fparenttype);
+		pe.createCriteria().andFparenttypeEqualTo(fparenttype).andFtemp1EqualTo("1");
 		pm.selectByExample(pe);
 		m.addAttribute("alist", pg);
 		PageInfo <Product>  pageInfo = pg.toPageInfo();

@@ -30,9 +30,9 @@ $(document).ready(function() {
 			$.post("backLogin", 
 				{uaccount:$("#account").val(),
 			 	upwd:$("#password").val()} ,
-					function(result){
-			 		 console.info(result);
-			 		if(result.code==1){
+					function(res){
+			 		 
+			 		if(res.code==1){
 				 		window.location.href="back_index";   
 				 		alert('登录成功');
 			 		}else{

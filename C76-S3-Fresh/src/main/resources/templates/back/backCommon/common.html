@@ -8,9 +8,9 @@
 <header th:fragment="commheader">
  <h1><img src="images/back/admin_logo.png"/></h1>
  <ul class="rt_nav">
-  <li><a href="http://www.deathghost.cn" target="_blank" class="website_icon">站点首页</a></li>
+  <li><a th:href="index" target="_blank" class="website_icon">果然首页</a></li>
   <li><a href="#" class="clear_icon">清除缓存</a></li>
-  <li><a href="#" class="admin_icon" >DeathGhost</a></li>
+  <li><a href="#" class="admin_icon" th:text="${session.superUser.uname}">DeathGhost</a></li>
   <li><a href="#" class="set_icon">账号设置</a></li>
   <li><a th:href="toquit" class="quit_icon">安全退出</a></li>
  </ul>
@@ -18,11 +18,11 @@
 <!--aside nav-->
 <!--aside nav-->
 <aside class="lt_aside_nav content mCustomScrollbar" th:fragment="commaside" >
- <h2><a href="index.html">起始页</a></h2>
+ <h2><a th:href="back_index">起始页</a></h2>
  <ul>
   <li>
    <dl>
-    <dt>常用布局示例</dt>
+    <dt>商品管理</dt>
     <!--当前链接则添加class:active-->
     <dd><a th:href="product_list" class="active">商品列表</a></dd>
     <dd><a th:href="recycle_bin">商品回收站</a></dd>
@@ -30,14 +30,14 @@
   </li>
   <li>
    <dl>
-    <dt>订单信息</dt>
+    <dt>订单管理</dt>
     <dd><a th:href="order_list">订单列表</a></dd>
     <!-- <dd><a href="order_detail.html">订单详情</a></dd> -->
    </dl>
   </li>
   <li>
    <dl>
-    <dt>会员管理</dt>
+    <dt>用户管理</dt>
     <dd><a th:href="user_list">会员列表</a></dd>
     <dd><a href="user_detail.html">添加会员（详情）</a></dd>
     <dd><a href="user_rank.html">会员等级</a></dd>
@@ -52,7 +52,7 @@
   </li>
   <li>
    <dl>
-    <dt>配送设置</dt>
+    <dt>配送管理</dt>
     <dd><a th:href="express_list">配送方式</a></dd>
    
    </dl>

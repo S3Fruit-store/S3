@@ -70,7 +70,7 @@
         <th>配送方式</th>
         <th>操作</th>
         <th>状态</th>
-        <th>状态操作</th>
+       <!--  <th>状态操作</th> -->
        </tr>
        <tr th:each=" p : ${plist}">
         <td th:text="${p.onumber}" class="center">201602011207</td>
@@ -85,11 +85,14 @@
          <a th:href=" 'order_detail?oid=' + ${p.oid}" title="查看订单" class="link_icon" target="_blank">&#118;</a>
          <a th:href=" 'delectorder_list?oid=' + ${p.oid}" title="删除" class="link_icon">&#100;</a>
         </td>
-        <td th:text="${p.otype}" class="center">状态</td>
-        <td class="center">
+        <td th:switch="${p.otype}">
+		     <span th:case="'1'" th:text="已付款，未发货"></span>
+             <span th:case="'2'" th:text="已取消"></span>
+             <span th:case="'3'" th:text="已发货"></span></td>
+       <!--  <td class="center">
          <a href="#" title="发货" class="link_icon" target="_blank">&#118;</a>
          
-        </td>
+        </td> -->
        </tr>
       </table>
       <aside class="paging">

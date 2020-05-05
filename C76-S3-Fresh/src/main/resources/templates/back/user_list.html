@@ -56,28 +56,28 @@
       </section>
       <table class="table">
        <tr>
-        <th>Id</th>
+        
         <th>会员头像</th>
         <th>会员账号</th>
         <th>手机号码</th>
-        <th>电子邮件</th>
+        <th width="20%">邮箱</th>
         <th>验证</th>
         <th>会员等级</th>
-        <th>账户余额</th>
+       
         <th>昵称</th>
         <th>操作</th>
        </tr>
        <tr th:each=" u : ${ulist}">
-        <td th:text="${u.uid}" class="center">001</td>
-        <td class="center"><img th:src=" 'images' + ${u.ufilename}" width="50" height="50"/></td>
+       <!--  <td th:text="${u.uid}" class="center">001</td> -->
+        <td class="center"><img th:src=" 'images/user' + ${u.ufilename}" width="50" height="50"/></td>
         <td th:text="${u.uaccount}">DeathGhost</td>
         <td th:text="${u.uphone}"class="center">18300000000</td>
         <td th:text="${u.uemail}" class="center">deathghost@sina.cn</td>
-        <td class="center"><a title="已验证" class="link_icon">&#89;</a></td>
-        <td th:text="${u.utype}" class="center">0</td>
-        <td class="center">
+        <td class="center"><a title="已验证" class="link_icon" th:text="已验证">&#89;</a></td>
+        <td th:if="${u.utype}==1" th:text="普通用户" class="center">0</td>
+       <!--  <td class="center">
          <strong class="rmb_icon" th:text="${u.utemp1}" >5559.00</strong>
-        </td>
+        </td> -->
         <td class="center" th:text="${u.uname}">
          
         </td>
