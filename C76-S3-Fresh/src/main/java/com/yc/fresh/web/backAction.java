@@ -1,13 +1,20 @@
 package com.yc.fresh.web;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
@@ -18,10 +25,13 @@ import com.yc.fresh.bean.ProductExample;
 import com.yc.fresh.bean.ProductdetailExample;
 import com.yc.fresh.bean.Producttype;
 import com.yc.fresh.bean.ProducttypeExample;
+import com.yc.fresh.biz.BizException;
+import com.yc.fresh.biz.ProductBiz;
 import com.yc.fresh.dao.ExpressMapper;
 import com.yc.fresh.dao.ProductMapper;
 import com.yc.fresh.dao.ProductdetailMapper;
 import com.yc.fresh.dao.ProducttypeMapper;
+import com.yc.fresh.vo.Result;
 
 @Controller
 public class backAction {
@@ -82,6 +92,32 @@ public class backAction {
 		return "back/product_add";
 	}
 	
+	@Value(value = "${productUploadPath}")
+	private String productUploadPath;
+	
+	@Resource
+	private ProductBiz pbiz;
+	
+	@PostMapping("product_raise")
+	@ResponseBody
+	public Result product_raise(Product product,@RequestParam("file")MultipartFile file) throws IllegalStateException, IOException {
+		file.transferTo(new File(productUploadPath +file.getOriginalFilename()));
+		try {
+			Date now = new Date();
+			String filename = file.getOriginalFilename();
+	 		product.setFfilename(filename);
+			product.setFnumber(0);
+			product.setFtemp1("1");
+			product.setFtime(now);
+			pbiz.product_add(product);
+			return new Result(1,"商品添加成功");
+		} catch (BizException e) {
+			e.printStackTrace();
+			return new Result(e.getCode(), e.getName(),e.getMessage());
+		}
+		
+	}
+	
 	//将商品放入回收站
 	@GetMapping("product_recycle")
 	public String product_recycle(Model m,Integer fid
@@ -99,6 +135,7 @@ public class backAction {
 	public String recycle_bin(Model m) {
 		ProductExample pe = new ProductExample();
 		pe.createCriteria().andFtemp1EqualTo("0");
+		
 		m.addAttribute("pclist", pm.selectByExample(pe));
 		return "back/recycle_bin";
 	}

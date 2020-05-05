@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>全部产品</title>
     <link href="css/produ.css"rel="stylesheet">
-    <link href="css/index.css"rel="stylesheet">
+    <!-- <link href="css/index.css"rel="stylesheet"> -->
     <link href="css/share.css"rel="stylesheet">
     <script src="js/jquery-1.12.3.js"></script>
 </head>
@@ -71,7 +71,7 @@
                     <div class="bd1"  style="display: block">
                         <div th:each=" a : ${alist}" class="rcr">
                             <div class="rcr-top">
-                                <img th:src=" 'images/product/' + ${a.ffilename}" width="100%">
+                                <img th:src=" 'images/product/' + ${a.ffilename}" width="210" height="190">
                             </div>
                             <div class="rcr-bot">
                                 <div  class="rb-top">

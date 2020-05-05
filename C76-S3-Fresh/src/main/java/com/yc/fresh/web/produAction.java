@@ -49,7 +49,7 @@ public class produAction {
 	
 	@GetMapping({ "produ" })
 	public String produ(@RequestParam(defaultValue = "1") Integer page,@RequestParam(defaultValue = "国产水果") String fparenttype, Model m) {
-		Page<Product> pg = PageHelper.startPage(page,6,true);
+		Page<Product> pg = PageHelper.startPage(page,8,true);
 		ProductExample pe = new ProductExample();
 		pe.createCriteria().andFparenttypeEqualTo(fparenttype);
 		pm.selectByExample(pe);

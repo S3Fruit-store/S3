@@ -4,22 +4,12 @@
 <meta charset="utf-8"/>
 <title>后台管理系统</title>
 <meta name="author" content="DeathGhost" />
-<style type="text/css">
-.detail{
-	width:220px;
-	height:220px;
-	margin-left:40px;
-	float:left;
-
-}
-
-
-</style>
 <link rel="stylesheet" type="text/css" href="css/back/style.css">
 <!--[if lt IE 9]>
 <script src="js/html5.js"></script>
 <![endif]-->
 <script src="js/back/jquery.js"></script>
+<script type="text/javascript" src="js/easyform.js"></script>
 <script src="js/back/jquery.mCustomScrollbar.concat.min.js"></script>
 <script>
 
@@ -44,6 +34,27 @@
 		});
 	})(jQuery);
 </script>
+<script type="text/javascript">
+	function product_raise(){
+		var formData = new FormData(productform);
+		$.ajax({
+			url : 'product_raise', /*接口域名地址*/
+			type : 'post',
+			data : formData,
+			contentType : false,
+			processData : false,
+			success : function(res) {
+				if(res.code ==1){
+					alert('商品添加成功'); 
+					
+				}else{
+					alert('商品添加失败'); 
+				} 
+			  }
+			});
+	}
+
+</script>
 </head>
 <body>
 <!--header-->
@@ -61,7 +72,7 @@
        <h2 class="fl">添加商品</h2>
        <a class="fr top_rt_btn" th:href="product_list">返回产品列表</a>
       </div>
-    <form action="product_add()" method="post">
+    <form id="productform" action="product_raise()" method="post">
      <section>
       <ul class="ulColumn2">
        <li>
@@ -79,8 +90,8 @@
        </li>
        <li>
         <span class="item_name" style="width:120px;">分类：</span>
-        <select class="select" th:each="t : ${tlist}" >
-        <option th:value="t.tid" th:text="t.tname"></option>
+        <select class="select" name="tid">
+        	<option th:each="t : ${tlist}" th:value="${t.tid}" th:text="${t.tname}"></option>
         </select>
        </li>
        <li>
@@ -92,10 +103,9 @@
        </li>
        <li>
         <span class="item_name" style="width:120px;">商品图片：</span>
-        <label class="uploadImg">
-         <input type="file" name="ffilename"/>
-         <span>上传图片</span>
-        </label>
+        
+         <input type="file" name="file"/>
+        
        </li>
        <li>
         <span class="item_name" style="width:120px;">商品价格：</span>
@@ -105,16 +115,22 @@
       
        <li>
         <span class="item_name" style="width:120px;"></span>
-        <input type="submit" class="link_btn"/>
+        <input type="button" value="添加" onclick="product_raise()"/>
+        
        </li>
       </ul>
      </section>
     </form> 
  </div>
+ <script type="text/javascript">
+		$(document).ready(function() {
+			$('#productform').easyform();
+		});
+	</script>
 </section>
-<script src="js/ueditor.config.js"></script>
+<!-- <script src="js/ueditor.config.js"></script>
 <script src="js/ueditor.all.min.js"> </script>
-
+ -->
 
 </body>
 </html>
