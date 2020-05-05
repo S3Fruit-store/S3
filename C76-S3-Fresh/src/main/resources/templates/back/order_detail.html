@@ -93,20 +93,22 @@
         <td>评价时间时间：---</td>
        </tr>
        <tr>
-        <td th:switch="${bill.otype}">订单状态：
+        <td th:switch="${blist.otype}">订单状态：
 		     <span th:case="'1'" th:text="已付款，未发货"></span>
              <span th:case="'2'" th:text="已取消"></span>
              <span th:case="'3'" th:text="已发货"></span></td>
-        <td colspan="3">订单备注：<span th:text="${blist.onote}"><mark>帮我检查好呀~谢谢~</mark></span></td>
+        <td colspan="3">订单备注：<mark><span th:text="${blist.onote}"></span></mark></td>
         </tr>
       </table>
       <table class="table">
        <tr th:each="o : ${olist}">
         <td class="center"><img th:src=" 'images/product/' + ${o.product.ffilename}" width="50" height="50"/></td>
-        <td>产品名称:<span th:text="${o.product.fname}"></span></td>
-        <td class="center"><strong>数量：<span th:text="${o.pquintity}">1</span></strong></td>
-        <td class="center"><strong th:text="${o.product.fprice}" class="rmb_icon">59.00</strong></td>
-        <td class="center">单位：箱</td>
+        <td>产品名称<span th:text="${o.product.fname}"></span></td>
+			 <td class="center">类型：<span th:text="${o.product.fparenttype}"></span ></td>
+			 <td class="center">源产地：<span th:text="${o.product.faddress}"></span> </td>
+			 <td class="center">单价：<strong class="rmb_icon" th:text="${o.product.fprice}">59.00</strong></td>
+			 <td class="center">数量：<strong th:text="${o.pquintity}">1</strong></td>
+			 <td class="center">小计：<strong class="rmb_icon" th:text="${o.product.fprice} * ${o.pquintity}+'.00'">59.00</strong></td>
        </tr>
        
       </table>

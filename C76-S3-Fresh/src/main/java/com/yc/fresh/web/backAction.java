@@ -1,5 +1,7 @@
 package com.yc.fresh.web;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
@@ -13,8 +15,13 @@ import com.github.pagehelper.PageInfo;
 import com.yc.fresh.bean.ExpressExample;
 import com.yc.fresh.bean.Product;
 import com.yc.fresh.bean.ProductExample;
+import com.yc.fresh.bean.ProductdetailExample;
+import com.yc.fresh.bean.Producttype;
+import com.yc.fresh.bean.ProducttypeExample;
 import com.yc.fresh.dao.ExpressMapper;
 import com.yc.fresh.dao.ProductMapper;
+import com.yc.fresh.dao.ProductdetailMapper;
+import com.yc.fresh.dao.ProducttypeMapper;
 
 @Controller
 public class backAction {
@@ -23,6 +30,12 @@ public class backAction {
 	
 	@Resource
 	private ExpressMapper em;
+	
+	@Resource
+	private ProducttypeMapper ptm;
+	
+	@Resource
+	private ProductdetailMapper pdm;
 	//商品列表
 	@GetMapping("product_list")
 	public String product_list(Model m,@RequestParam(defaultValue = "1") Integer page) {
@@ -39,14 +52,32 @@ public class backAction {
 	//商品详情
 	@GetMapping("product_detail")
 	public String product_detail(Integer fid,Model m) {
+		//商品信息
+		Product product = pm.selectByPrimaryKey(fid);
+		m.addAttribute("product", product);
+		//商品类型
+		ProducttypeExample pte = new ProducttypeExample();
+		pte.createCriteria().andTidEqualTo(product.getTid());
+		List<Producttype> tlist = ptm.selectByExample(pte);
+		String type = tlist.get(0) .getTname();
+		m.addAttribute("type", type);
 		
-		m.addAttribute("product", pm.selectByPrimaryKey(fid));
+		//详情图片查询
+		ProductdetailExample pde = new ProductdetailExample();
+		pde.createCriteria().andFidEqualTo(fid);
+		m.addAttribute("pdlist",pdm.selectByExample(pde) );
+		
+		if(pdm.selectByExample(pde).size() ==0) {
+			
+		}
 		return "back/product_detail";
 	}
 	
 	//添加商品
 	@GetMapping("product_add")
-	public String addProduct() {
+	public String addProduct(Model m) {
+		
+		m.addAttribute("tlist", ptm.selectByExample(null));
 		
 		return "back/product_add";
 	}

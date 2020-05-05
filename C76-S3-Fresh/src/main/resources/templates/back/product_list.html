@@ -51,10 +51,6 @@
        <a th:href="product_add" class="fr top_rt_btn add_icon">添加商品</a>
       </div>
       <section class="mtb">
-       <!-- <select class="select">
-        <option>下拉菜单</option>
-        <option>菜单1</option>
-       </select> -->
        <input type="text" name="name" class="textbox textbox_225" placeholder="输入产品关键词.."/>
        <input type="button" value="查询" class="group_btn"/>
       </section>
@@ -62,11 +58,9 @@
        <tr>
         <th>缩略图</th>
         <th>产品名称</th>
-        <th>货号</th>
-        <th>单价</th>
+        <th>类型</th>
+        <th>源产地</th>
         <th>单位</th>
-        <th>促销</th>
-        
         <th>热销</th>
         <th>已售</th>
         <th>操作</th>
@@ -77,9 +71,8 @@
         <td class="center" th:text="${p.fparenttype}"></td>
         <td class="center"><strong class="rmb_icon" th:text="${p.fprice}"></strong></td>
         <td class="center" th:text="${p.faddress}"></td>
-        <td class="center"><a title="是" class="link_icon" >&#88;</a></td>
         
-        <td class="center"><a title="是" class="link_icon" th:if="${p.fnumber} >1000" 
+        <td class="center"><a title="是" class="link_icon" th:if="${p.fnumber} >500" 
         		th:text="是"></a></td>
         <td class="center" th:text="${p.fnumber}"></td>
         <td class="center">
@@ -88,17 +81,6 @@
         </td>
        </tr>
       </table>
-       <!-- <div class="paging">
-			<a th:href="'product_list?page='+${glist.prePage}"  >上一页</a>
-				<ul>
-					 <li >
-					   <a th:href="'product_list?page='+${plist.pageNum}" class="active">
-					   <span th:text="${glist.pageNum}" >1</span>
-					   </a>
-					   </li>
-				</ul>
-			 <a th:href="'product_list?page='+${glist.nextPage}" >下一页</a>
-		</div> -->
       <aside class="paging" style="position : center">
 	       <a th:if="${glist.prePage}>0" th:text="上一页" th:href="'product_list?page='+${glist.prePage}"  >上一页</a>
 	       <a th:href="'product_list?page='+${plist.pageNum}" class="active">

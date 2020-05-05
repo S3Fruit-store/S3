@@ -15,7 +15,7 @@ public interface ProducttypeMapper {
     int insertSelective(Producttype record);
 
     List<Producttype> selectByExample(ProducttypeExample example);
-
+    
     int updateByExampleSelective(@Param("record") Producttype record, @Param("example") ProducttypeExample example);
 
     int updateByExample(@Param("record") Producttype record, @Param("example") ProducttypeExample example);

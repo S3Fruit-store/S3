@@ -27,17 +27,15 @@ public class Product {
 
     private String ftemp2;
     
-	
-	private Producttype ptype;
-	  
-	public Producttype getPtype() { 
-		return ptype;
-	}
-	  
-	public void setPtype(Producttype ptype) {
-		this.ptype = ptype; 
-	}
-	 
+	/*
+	 * private Producttype producttype;
+	 * 
+	 * public Producttype getProducttype() { return producttype; }
+	 * 
+	 * public void setProducttype(Producttype producttype) { this.producttype =
+	 * producttype; }
+	 */
+
 	public Integer getFid() {
         return fid;
     }

@@ -72,25 +72,22 @@
 		        	<span th:case="'1'" th:text="已付款，未发货"></span>
                 	<span th:case="'2'" th:text="已取消"></span>
                 	<span th:case="'3'" th:text="已发货"></span></td>
-		        <td colspan="3">订单备注：<span th:text="${bill.onote}"></span></td>
+		        <td colspan="3">订单备注：<mark><span th:text="${bill.onote}"></span></mark></td>
 		        </tr>
 		      </table>
-		      <!-- <table class="table">
-		       <tr th:each="od : odlist">
-		        <td class="center"><img th:src=" 'images/product/' + ${od.product.ffilename}" width="50" height="50"/></td>
-		        <td>产品名称<span th:text="${od.product.fname}"></span></td>
-		        <td class="center">A15902</td>
-		        <td class="center"><strong class="rmb_icon">59.00</strong></td>
-		        <td class="center">
-		         <p>颜色：蓝色</p>
-		         <p>尺码：XXL码</p>
-		        </td>
-		        <td class="center"><strong>1</strong></td>
-		        <td class="center"><strong class="rmb_icon">59.00</strong></td>
-		        <td class="center">包</td>
+		      <table class="table">
+		       <tr th:each=" o : ${odlist}">
+			        <td class="center"><img th:src=" 'images/product/' + ${o.product.ffilename}" width="50" height="50"/></td>
+			        <td>产品名称<span th:text="${o.product.fname}"></span></td>
+			        <td class="center">类型：<span th:text="${o.product.fparenttype}"></span >A15902</td>
+			        <td class="center">源产地：<span th:text="${o.product.faddress}"></span> </td>
+			        <td class="center">单价：<strong class="rmb_icon" th:text="${o.product.fprice}">59.00</strong></td>
+			        <td class="center">数量：<strong th:text="${o.pquintity}">1</strong></td>
+			        <td class="center">小计：<strong class="rmb_icon" th:text="${o.product.fprice} * ${o.pquintity}">59.00</strong></td>
+			        
 		       </tr>
 		       
-		      </table> -->
+		      </table>
           </div>
 
             

@@ -36,6 +36,7 @@ public class UserAction {
 	@Resource
 	private CartMapper cm;
 	
+	@Resource
 	private OrderdetailMapper odm;
 	
 	@GetMapping("tomember")
@@ -106,5 +107,11 @@ public class UserAction {
 		
 		return "redirect:member_order";
 		
+	}
+	//删除订单
+	@GetMapping("order_delete")
+	public String order_delete(Integer oid) {
+		bm.deleteByPrimaryKey(oid);
+		return "redirect:member_order";
 	}
 }

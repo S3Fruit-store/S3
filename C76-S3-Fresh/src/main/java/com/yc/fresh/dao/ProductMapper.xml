@@ -14,8 +14,8 @@
     <result column="fnumber" jdbcType="INTEGER" property="fnumber" />
     <result column="ftemp1" jdbcType="VARCHAR" property="ftemp1" />
     <result column="ftemp2" jdbcType="VARCHAR" property="ftemp2" />
-    <association property="ptype" column="ftype"
-    select="com.yc.fresh.dao.ProducttypeMapper.selectByPrimaryKey"></association>
+    <!-- <association property="producttype" column="tid"
+    select="com.yc.fresh.dao.ProducttypeMapper.selectByPrimaryKey"></association> -->
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
