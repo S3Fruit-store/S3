@@ -19,9 +19,9 @@ public class LoginInterceptor implements HandlerInterceptor{
 		HttpSession session = request.getSession();
 		
 		if(session.getAttribute("loginedUser") == null) {
-			String uri = request.getRequestURI();
+			 String uri = request.getRequestURI(); 
 			// 保存当前用户访问的地址和参数( GET )
-			session.setAttribute("uri", uri);
+			session.setAttribute("uri", uri); 
 			response.sendRedirect("http://127.0.0.1/tologin");
 			return false;
 		}

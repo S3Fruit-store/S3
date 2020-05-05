@@ -14,8 +14,18 @@ public class Orderdetail {
     private String otemp1;
 
     private String otemp2;
+    
+    private Product product;
+    
+    public Product getProduct() {
+		return product;
+	}
 
-    public Integer getOdid() {
+	public void setProduct(Product product) {
+		this.product = product;
+	}
+
+	public Integer getOdid() {
         return odid;
     }
 

@@ -27,10 +27,10 @@ public class Bill {
 
     private String otemp1;
 
-    private String eid;
+    private String otemp2;
     
     private Express express;
-
+    
     public Express getExpress() {
 		return express;
 	}
@@ -135,11 +135,11 @@ public class Bill {
         this.otemp1 = otemp1 == null ? null : otemp1.trim();
     }
 
-    public String getEid() {
-        return eid;
+    public String getOtemp2() {
+        return otemp2;
     }
 
-    public void setEid(String eid) {
-        this.eid = eid == null ? null : eid.trim();
+    public void setOtemp2(String otemp2) {
+        this.otemp2 = otemp2 == null ? null : otemp2.trim();
     }
 }

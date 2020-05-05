@@ -66,13 +66,13 @@ public class orderAction {
 	@PostMapping("delivergoods")
 	@ResponseBody
 	public Result delivergoods(Integer oid, Model m,Bill bill,String onote) {
-		System.out.println("+++++++++++++++++");
+		
 		int code=0;
 		bill.setOtype(3);
 		bill.setOnote(onote);
 		Bill bill2 =bm.selectByPrimaryKey(oid);
-		System.out.println("+++++++++++++++++");
-		System.out.println(bill2.getOtype());
+		
+	
 		if(bill2.getOtype()==2){
 			BillExample be =new BillExample();
 			be.createCriteria().andOidEqualTo(oid);

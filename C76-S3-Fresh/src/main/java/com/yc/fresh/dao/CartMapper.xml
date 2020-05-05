@@ -10,7 +10,7 @@
     <result column="ctemp1" jdbcType="VARCHAR" property="ctemp1" />
     <result column="ctemp2" jdbcType="VARCHAR" property="ctemp2" />
     <association property="product" column="fid"
-    	select="com.yc.dao.ProductMapper.selectByPrimaryKey"></association>
+    	select="com.yc.fresh.dao.ProductMapper.selectByPrimaryKey"></association>
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>

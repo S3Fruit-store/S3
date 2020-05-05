@@ -9,6 +9,8 @@
     <result column="odcost" jdbcType="REAL" property="odcost" />
     <result column="otemp1" jdbcType="VARCHAR" property="otemp1" />
     <result column="otemp2" jdbcType="VARCHAR" property="otemp2" />
+    <association property="product" column="fid"
+    	select="com.yc.fresh.dao.ProductMapper.selectByPrimaryKey"></association>
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>

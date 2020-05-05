@@ -41,24 +41,29 @@ public class loginAction {
 	public String tologin() {
 		return "login";
 	}
+	
 	@PostMapping("login")
 	@ResponseBody
-	public ModelAndView login(@Valid User user,HttpSession session,
-			ModelAndView mav) {
-		
+	public ModelAndView login(@Valid User user,Errors errors,HttpSession session,
+			ModelAndView mav,@SessionAttribute(name="uri",required=false)String uri) {
+
 		try {
 			User dbuser = ubiz.login(user);
 			session.setAttribute("loginedUser", dbuser);
-			mav.setViewName("index");
-			
-			
+			if(uri != null) {
+				// 这是拦截登录的情况
+				mav.setViewName("redirect:http://127.0.0.1" + uri);
+			} else {
+				// 这是用户的主动登录
+				mav.setViewName("index");
+			}
 		} catch (BizException e) {
 			e.printStackTrace();
 			mav.addObject("msg", e.getMessage());
 			mav.setViewName("login");
 		}
 		return mav;
-		
+
 	}
 	@GetMapping("toreg")
 	public String toreg() {

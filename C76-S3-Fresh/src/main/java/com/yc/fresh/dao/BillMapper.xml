@@ -15,6 +15,8 @@
     <result column="eid" jdbcType="INTEGER" property="eid" />
     <result column="otemp1" jdbcType="VARCHAR" property="otemp1" />
     <result column="otemp2" jdbcType="VARCHAR" property="otemp2" />
+    <association property="express" column="eid"
+    	select="com.yc.fresh.dao.ExpressMapper.selectByPrimaryKey"></association>
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>

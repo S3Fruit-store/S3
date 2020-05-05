@@ -305,63 +305,63 @@ public class ProductExample {
             return (Criteria) this;
         }
 
-        public Criteria andFtypeIsNull() {
-            addCriterion("ftype is null");
+        public Criteria andTidIsNull() {
+            addCriterion("tid is null");
             return (Criteria) this;
         }
 
-        public Criteria andFtypeIsNotNull() {
-            addCriterion("ftype is not null");
+        public Criteria andTidIsNotNull() {
+            addCriterion("tid is not null");
             return (Criteria) this;
         }
 
-        public Criteria andFtypeEqualTo(Integer value) {
-            addCriterion("ftype =", value, "ftype");
+        public Criteria andTidEqualTo(Integer value) {
+            addCriterion("tid =", value, "tid");
             return (Criteria) this;
         }
 
-        public Criteria andFtypeNotEqualTo(Integer value) {
-            addCriterion("ftype <>", value, "ftype");
+        public Criteria andTidNotEqualTo(Integer value) {
+            addCriterion("tid <>", value, "tid");
             return (Criteria) this;
         }
 
-        public Criteria andFtypeGreaterThan(Integer value) {
-            addCriterion("ftype >", value, "ftype");
+        public Criteria andTidGreaterThan(Integer value) {
+            addCriterion("tid >", value, "tid");
             return (Criteria) this;
         }
 
-        public Criteria andFtypeGreaterThanOrEqualTo(Integer value) {
-            addCriterion("ftype >=", value, "ftype");
+        public Criteria andTidGreaterThanOrEqualTo(Integer value) {
+            addCriterion("tid >=", value, "tid");
             return (Criteria) this;
         }
 
-        public Criteria andFtypeLessThan(Integer value) {
-            addCriterion("ftype <", value, "ftype");
+        public Criteria andTidLessThan(Integer value) {
+            addCriterion("tid <", value, "tid");
             return (Criteria) this;
         }
 
-        public Criteria andFtypeLessThanOrEqualTo(Integer value) {
-            addCriterion("ftype <=", value, "ftype");
+        public Criteria andTidLessThanOrEqualTo(Integer value) {
+            addCriterion("tid <=", value, "tid");
             return (Criteria) this;
         }
 
-        public Criteria andFtypeIn(List<Integer> values) {
-            addCriterion("ftype in", values, "ftype");
+        public Criteria andTidIn(List<Integer> values) {
+            addCriterion("tid in", values, "tid");
             return (Criteria) this;
         }
 
-        public Criteria andFtypeNotIn(List<Integer> values) {
-            addCriterion("ftype not in", values, "ftype");
+        public Criteria andTidNotIn(List<Integer> values) {
+            addCriterion("tid not in", values, "tid");
             return (Criteria) this;
         }
 
-        public Criteria andFtypeBetween(Integer value1, Integer value2) {
-            addCriterion("ftype between", value1, value2, "ftype");
+        public Criteria andTidBetween(Integer value1, Integer value2) {
+            addCriterion("tid between", value1, value2, "tid");
             return (Criteria) this;
         }
 
-        public Criteria andFtypeNotBetween(Integer value1, Integer value2) {
-            addCriterion("ftype not between", value1, value2, "ftype");
+        public Criteria andTidNotBetween(Integer value1, Integer value2) {
+            addCriterion("tid not between", value1, value2, "tid");
             return (Criteria) this;
         }
 

@@ -66,7 +66,7 @@ public class produAction {
 		pde.createCriteria().andFidEqualTo(fid);
 		List<Productdetail> pd= pdm.selectByExample(pde);
 		m.addAttribute("alist", pg);
-		System.out.println(pd.toString());
+		
 		m.addAttribute("plist", pd);
 		m.addAttribute("fid",fid);
 		

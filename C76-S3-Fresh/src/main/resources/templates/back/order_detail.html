@@ -84,23 +84,26 @@
         <td>收件人：<span th:text="${blist.oname}">DeathGhost</span></td>
         <td>联系电话：<span th:text="${blist.ophone}">18300000000</span></td>
         <td>收件地址：<span th:text="${blist.oaddress}"></span></td>
-        <td>付款时间：<span th:text="${blist.otime}"></span></td>
+        <td>付款时间：<span th:text="${#dates.format(blist.otime,'yyyy-MM-dd HH:mm:ss')}"></span></td>
        </tr>
        <tr>
-        <td>下单时间：<span th:text="${blist.otime}"></span></td>
-        <td>付款时间：<span th:text="${blist.otime}"></span></td>
-        <td>确认时间：<span th:text="${blist.otime}"></span></td>
+        <td>下单时间:<span th:text="${#dates.format(blist.otime,'yyyy-MM-dd HH:mm:ss')}"></span></td>
+		<td>订单总金额：<span th:text="${blist.ocost}"></span></td>
+		<td>配送方式：<span th:text="${blist.express.ename}"></span></td>
         <td>评价时间时间：---</td>
        </tr>
        <tr>
-        <td>订单状态：<span th:text="${blist.otype}"><a>已付款，待发货</a></span></td>
+        <td th:switch="${bill.otype}">订单状态：
+		     <span th:case="'1'" th:text="已付款，未发货"></span>
+             <span th:case="'2'" th:text="已取消"></span>
+             <span th:case="'3'" th:text="已发货"></span></td>
         <td colspan="3">订单备注：<span th:text="${blist.onote}"><mark>帮我检查好呀~谢谢~</mark></span></td>
         </tr>
       </table>
       <table class="table">
        <tr th:each="o : ${olist}">
         <td class="center"><img th:src=" 'images/product/' + ${o.product.ffilename}" width="50" height="50"/></td>
-        <td th:text="${o.product.fname}">这里是产品名称</td>
+        <td>产品名称:<span th:text="${o.product.fname}"></span></td>
         <td class="center"><strong>数量：<span th:text="${o.pquintity}">1</span></strong></td>
         <td class="center"><strong th:text="${o.product.fprice}" class="rmb_icon">59.00</strong></td>
         <td class="center">单位：箱</td>
